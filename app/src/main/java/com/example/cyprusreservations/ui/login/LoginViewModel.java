@@ -69,7 +69,7 @@ public class LoginViewModel extends ViewModel {
     // A placeholder password validation check
     private boolean isPasswordValid(String password) {
 
-        if(password.trim().length()<8 && password.trim().length()>15 && hasNumber(password) && hasSpecialChar(password) && hasCapitalLeter(password)){
+        if(password.trim().length()>8 && password.trim().length()<15 && hasNumber(password) && hasSpecialChar(password) && hasCapitalLeter(password)){
             return true;
         }else{
             return false;

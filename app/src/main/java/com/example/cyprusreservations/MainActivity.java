@@ -1,5 +1,7 @@
 package com.example.cyprusreservations;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -8,6 +10,7 @@ import android.view.Menu;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import com.example.cyprusreservations.ui.gallery.GalleryFragment;
 import com.example.cyprusreservations.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -66,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
     }
 
     @Override
@@ -78,9 +82,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-
-        if(id == R.id.app_bar_search)
-            return true;
 
         return super.onOptionsItemSelected(item);
     }
