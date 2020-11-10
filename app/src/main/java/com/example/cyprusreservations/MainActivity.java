@@ -1,16 +1,11 @@
 package com.example.cyprusreservations;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.widget.ListView;
-import android.widget.SearchView;
 
-import com.example.cyprusreservations.ui.gallery.GalleryFragment;
 import com.example.cyprusreservations.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -56,19 +51,19 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-
-                if(id == R.id.sign_in){
-                    Intent in = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivity(in);
-                }
-                return true;
-            }
-        });
+        
+//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                int id = item.getItemId();
+//
+//                if(id == R.id.sign_in){
+//                    Intent in = new Intent(MainActivity.this, LoginActivity.class);
+//                    startActivity(in);
+//                }
+//                return true;
+//            }
+//        });
 
     }
 
@@ -92,6 +87,5 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
 
 }
