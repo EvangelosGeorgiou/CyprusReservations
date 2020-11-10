@@ -34,6 +34,7 @@ public class HomeFragment extends Fragment {
     int[] logo = {R.drawable.pieronelogo,R.drawable.pierone_image,R.drawable.pieronelogo,R.drawable.pieronelogo,R.drawable.pierone_image,R.drawable.pieronelogo};
     float[] rating = {1,2,3,4,5,1};
 
+
     CustomAdaptor customAdaptor;
     private List<StoreInfo> listStoreInfo = new ArrayList<>();
 
