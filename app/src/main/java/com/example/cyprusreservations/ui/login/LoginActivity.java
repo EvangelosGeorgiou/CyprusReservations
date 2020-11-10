@@ -6,6 +6,7 @@ import androidx.annotation.RequiresApi;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,7 +29,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cyprusreservations.MainActivity;
 import com.example.cyprusreservations.R;
+import com.example.cyprusreservations.ui.home.HomeFragment;
 import com.example.cyprusreservations.ui.login.LoginViewModel;
 import com.example.cyprusreservations.ui.login.LoginViewModelFactory;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -149,9 +152,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
-        String welcome = getString(R.string.welcome) + model.getDisplayName();
-        // TODO : initiate successful logged in experience
-        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+        Intent in = new Intent(this, HomeFragment.class);
+        startActivity(in);
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {

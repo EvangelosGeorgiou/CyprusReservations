@@ -40,12 +40,10 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-
         listView = root.findViewById(R.id.listview);
-
+        setHasOptionsMenu(true);
         //stores all the information for shops in a list
         for(int i=0; i<titles.length; i++){
             StoreInfo storeInfo = new StoreInfo(titles[i],description[i],logo[i],rating[i]);
@@ -57,12 +55,14 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
-    //TODO search 
+    //TODO search
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.main,menu);
+        menu.clear();
+        inflater.inflate(R.menu.menu_home_fragment,menu);
         MenuItem menuItem = menu.findItem(R.id.app_bar_search);
+        menuItem.setVisible(true);
         SearchView searchView = (SearchView) menuItem.getActionView();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
