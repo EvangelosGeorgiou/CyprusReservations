@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 import com.example.cyprusreservations.ui.main.SectionsPagerAdapter;
 
@@ -31,6 +34,8 @@ public class ReservationActivity extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
 
+
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,7 +47,24 @@ public class ReservationActivity extends AppCompatActivity {
         Intent in = getIntent();
         storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
         String title = storeInfo.getTitle();
+        String description = storeInfo.getDescription();
+        float rate = storeInfo.getRating();
+        int logo = storeInfo.getLogo();
 
-        //sinexise na piasis j ta ala j meta na ta kamis set pano sto fragment_home_row
+
+        TextView tvTitle =findViewById(R.id.tvTitle);
+        TextView desc =findViewById(R.id.tvDescription);
+        RatingBar rating = findViewById(R.id.rbRating);
+        ImageView l = findViewById(R.id.ivLogo);
+
+        l.setImageResource(logo);
+        rating.setRating(rate);
+        tvTitle.setText(title);
+        desc.setText(description);
+
+
+
+
     }
+
 }
