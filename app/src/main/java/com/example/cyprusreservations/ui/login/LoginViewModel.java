@@ -45,9 +45,9 @@ public class LoginViewModel extends ViewModel {
     }
 
     public void loginDataChanged(String username, String password) {
-        if (!isUserNameValid(username)) {
+        if (isUserNameValid(username) == false) {
             loginFormState.setValue(new LoginFormState(R.string.invalid_username, null));
-        } else if (!isPasswordValid(password)) {
+        } else if (isPasswordValid(password) == false) {
             loginFormState.setValue(new LoginFormState(null, R.string.invalid_password));
         } else {
             loginFormState.setValue(new LoginFormState(true));
@@ -79,15 +79,18 @@ public class LoginViewModel extends ViewModel {
     private boolean hasNumber(String pass){
         for(int i=0; i<pass.length();i++){
             if(Character.isDigit(pass.charAt(i))){
+                System.out.println("has number = true");
                 return true;
             }
         }
+        System.out.println("has number = false");
         return false;
     }
 
     public Boolean hasSpecialChar(String s) {
         //int counter =0;
         if (s == null || s.trim().isEmpty()) {
+            System.out.println("has special char false");
             return false;
         }
         Pattern p = Pattern.compile("[^A-Za-z0-9]");
@@ -95,16 +98,21 @@ public class LoginViewModel extends ViewModel {
         // boolean b = m.matches();
 
         boolean b = m.find();
-        if (b == true)
+        if (b == true) {
+            System.out.println("has special char true");
             return true;
-        else
+        }else {
+            System.out.println("has special char false");
             return false;
+        }
     }
 
     public Boolean hasCapitalLeter(String pass){
         if(pass.equals(pass.toLowerCase())){
+            System.out.println("has capital Letter false");
             return false;
         }else{
+            System.out.println("has special char true");
             return true;
         }
     }

@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment {
         return root;
     }
     //TODO search 
-/*
+
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.main,menu);
@@ -89,5 +89,5 @@ public class HomeFragment extends Fragment {
             return true;
 
         return super.onOptionsItemSelected(item);
-    }*/
+    }
 }

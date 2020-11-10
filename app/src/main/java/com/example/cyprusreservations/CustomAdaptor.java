@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.cyprusreservations.ui.login.LoginActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,9 +67,9 @@ public class CustomAdaptor extends BaseAdapter implements Filterable {
             @Override
             public void onClick(View view) {
                 //sending store information to the next page
-//                Intent in = new Intent(MainActivity2.this,Store.class);
-//                in.putExtra("storeInfo",storeInfoModelListFiltered.get(position));
-//                startActivity(in);
+                Intent in = new Intent(context, LoginActivity.class);
+                in.putExtra("storeInfo",storeInfoModelListFiltered.get(position));
+                context.startActivity(in);
             }
         });
 

@@ -16,7 +16,7 @@
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password format incorect. Check the FAB button for more!</string>
+    <string name="invalid_username">Must be a valid gmail account</string>
+    <string name="invalid_password">Password format incorrect. Check the FAB button for more!</string>
     <string name="login_failed">"Login failed"</string>
 </resources>
