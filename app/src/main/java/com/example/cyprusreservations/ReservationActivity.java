@@ -1,5 +1,6 @@
 package com.example.cyprusreservations;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -16,6 +17,8 @@ import android.view.View;
 import com.example.cyprusreservations.ui.main.SectionsPagerAdapter;
 
 public class ReservationActivity extends AppCompatActivity {
+
+    StoreInfo storeInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,5 +38,11 @@ public class ReservationActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        Intent in = getIntent();
+        storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
+        String title = storeInfo.getTitle();
+        
+        //sinexise na piasis j ta ala j meta na ta kamis set pano sto fragment_home_row
     }
 }
