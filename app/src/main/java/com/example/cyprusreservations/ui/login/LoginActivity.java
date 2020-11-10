@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), toastMsg, Toast.LENGTH_LONG).show();
             }
         });
-        String test =  "test";
+        
 
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
