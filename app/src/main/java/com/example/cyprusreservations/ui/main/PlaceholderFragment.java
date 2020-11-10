@@ -53,6 +53,10 @@ public class PlaceholderFragment extends Fragment {
         if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)
         {
             //View root = inflater.inflate(R.layout.fragment_example, container, false);
+            tv.setText("Iaso kokla");
+
+
+
 
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)

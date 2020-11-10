@@ -6,10 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".ReservationActivity">
 
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.cyprusreservations.ui.home.HomeFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="450dp" />
+
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.CyprusReservations.AppBarOverlay">
+        android:theme="@style/Theme.CyprusReservations.AppBarOverlay"
+        app:layout_anchor="@+id/appBarLayout"
+        app:layout_anchorGravity="center">
 
         <TextView
             android:id="@+id/title"
@@ -21,19 +33,27 @@
             android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            app:tabRippleColor="#FF5722"
-            app:tabTextColor="#03A9F4" />
     </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="100dp"
+        android:background="#FFFFFF"
+        app:tabGravity="center"
+        app:tabRippleColor="#FF5722"
+        app:tabTextColor="#03A9F4" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="304dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="290dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -43,4 +63,5 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
