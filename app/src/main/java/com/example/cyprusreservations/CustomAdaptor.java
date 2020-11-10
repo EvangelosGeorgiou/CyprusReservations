@@ -67,7 +67,7 @@ public class CustomAdaptor extends BaseAdapter implements Filterable {
             @Override
             public void onClick(View view) {
                 //sending store information to the next page
-                Intent in = new Intent(context, LoginActivity.class);
+                Intent in = new Intent(context, ReservationActivity.class);
                 in.putExtra("storeInfo",storeInfoModelListFiltered.get(position));
                 context.startActivity(in);
             }
