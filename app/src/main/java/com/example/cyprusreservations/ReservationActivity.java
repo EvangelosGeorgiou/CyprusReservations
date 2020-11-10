@@ -42,7 +42,7 @@ public class ReservationActivity extends AppCompatActivity {
         Intent in = getIntent();
         storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
         String title = storeInfo.getTitle();
-        
+
         //sinexise na piasis j ta ala j meta na ta kamis set pano sto fragment_home_row
     }
 }
