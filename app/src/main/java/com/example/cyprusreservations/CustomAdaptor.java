@@ -21,6 +21,8 @@ import java.util.List;
 
 public class CustomAdaptor extends BaseAdapter implements Filterable {
 
+    private static final String  INFO  = "";
+
     private List<StoreInfo> storeInfoModelList;
     private List<StoreInfo> storeInfoModelListFiltered;
     private Context context;
@@ -68,7 +70,7 @@ public class CustomAdaptor extends BaseAdapter implements Filterable {
             public void onClick(View view) {
                 //sending store information to the next page
                 Intent in = new Intent(context, ReservationActivity.class);
-                in.putExtra("storeInfo",storeInfoModelListFiltered.get(position));
+                in.putExtra(INFO,storeInfoModelListFiltered.get(position));
                 context.startActivity(in);
             }
         });
@@ -82,13 +84,11 @@ public class CustomAdaptor extends BaseAdapter implements Filterable {
             @Override
             protected FilterResults performFiltering(CharSequence charSequence) {
                 FilterResults filterResults = new FilterResults();
-System.out.println("Inside the getFilter");
+
                 if(charSequence == null || charSequence.length() ==0){
                     filterResults.count = storeInfoModelList.size();
                     filterResults.values = storeInfoModelList;
-                    System.out.println("charSequence is null");
                 }else{
-                    System.out.println("charSequence is not null. inside the else");
                     String searchStr = charSequence.toString().toLowerCase();
                     List<StoreInfo> resultData = new ArrayList<>();
 
