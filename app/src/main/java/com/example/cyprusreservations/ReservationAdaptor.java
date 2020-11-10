@@ -4,11 +4,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-public class EventAdptor extends BaseAdapter {
+public class ReservationAdaptor extends BaseAdapter {
 
     private String eventTitle;
 
-    public EventAdptor(String eventTitle) {
+    public ReservationAdaptor(String eventTitle) {
         this.eventTitle = eventTitle;
     }
 
