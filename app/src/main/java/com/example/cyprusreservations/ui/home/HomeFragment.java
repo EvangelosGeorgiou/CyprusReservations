@@ -29,10 +29,14 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private ListView listView;
 
-    String[] titles = {"Piero One","Oreos Trellos","Confusio", "Pikantiko", "O Fanos","Lamna Rota"};
-    String[] description = {"cafe,","cafe","bar", "bar","restaubar"," restaubar"};
-    int[] logo = {R.drawable.pieronelogo,R.drawable.pierone_image,R.drawable.pieronelogo,R.drawable.pieronelogo,R.drawable.pierone_image,R.drawable.pieronelogo};
-    float[] rating = {1,2,3,4,5,1};
+    String[] titles = {"Piero One","Αγράμπελη","Η Γωνιά", "Finders", "Baraki Live","Confuzio Cafe"};
+    String[] description = {"Cafe,RestoBar","Cafe,Bar","Cafe,Bar", "Restaurant,Bar","Bar"," Cafe"};
+    int[] logo = {R.drawable.pieronelogo,R.drawable.agrampeli_logo,R.drawable.gonia_logo,R.drawable.finders_grill_bar_logo,R.drawable.barakilive_logo,R.drawable.confuzio_logo};
+    float[] rating = {(float)4.2, 5, (float)4.2 , (float) 4.3 , (float) 4.3, (float)4.2};
+    int[] phone = {25022375,25344314, 25115315,22750700, 96072277,25738883};
+    String[] address = {"Old Port Λεμεσός, 3042","Hatziloizi Mihailidi 12, Λεμεσός 3041", "Hatziloizi Mihailidi , Λεμεσός 3041",
+                        "28ης Οκτωβρίου 13, Έγκωμη 2414","Γεώργιου Γρίβα Διγενή, Λευκωσία","Λεωφ. Αρχ. Μακαρίου Γ', Λεμεσός 3021"};
+
 
 
     CustomAdaptor customAdaptor;
@@ -46,7 +50,7 @@ public class HomeFragment extends Fragment {
         setHasOptionsMenu(true);
         //stores all the information for shops in a list
         for(int i=0; i<titles.length; i++){
-            StoreInfo storeInfo = new StoreInfo(titles[i],description[i],logo[i],rating[i]);
+            StoreInfo storeInfo = new StoreInfo(titles[i],description[i],logo[i],rating[i],phone[i],address[i]);
             listStoreInfo.add(storeInfo);
         }
 

@@ -22,4 +22,9 @@
         android:name="com.example.cyprusreservations.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <activity
+        android:id="@+id/nav_signin"
+        android:name="com.example.cyprusreservations.ui.login.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 </navigation>

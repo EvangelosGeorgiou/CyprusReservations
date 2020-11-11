@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 import com.example.cyprusreservations.MainActivity;
 import com.example.cyprusreservations.R;
+import com.example.cyprusreservations.RegisterActivity;
 import com.example.cyprusreservations.ui.home.HomeFragment;
 import com.example.cyprusreservations.ui.login.LoginViewModel;
 import com.example.cyprusreservations.ui.login.LoginViewModelFactory;
@@ -158,5 +159,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    }
+
+    public void register(View v){
+        Intent in = new Intent(this, RegisterActivity.class);
+        startActivity(in);
     }
 }

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.cyprusreservations.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -87,5 +89,4 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
 }
