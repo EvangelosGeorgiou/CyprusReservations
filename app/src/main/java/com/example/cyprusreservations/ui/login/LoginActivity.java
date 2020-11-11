@@ -55,12 +55,12 @@ public class LoginActivity extends AppCompatActivity {
         SpannableString msg2 = new SpannableString("Password must contain at least 1 Capital Letter");
         SpannableString msg3 = new SpannableString("Password must contain at least 1 Number");
         SpannableString msg4 = new SpannableString("Password must contain at least 1 Special Character");
-        msg1.setSpan(new BulletSpan(10, Color.BLACK,8),1,40, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        msg2.setSpan(new BulletSpan(10, Color.BLACK,8),1,46, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        msg3.setSpan(new BulletSpan(10, Color.BLACK,8),1,39, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        msg4.setSpan(new BulletSpan(10, Color.BLACK,8),1,50, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        msg1.setSpan(new BulletSpan(10, Color.BLACK, 8), 1, 40, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        msg2.setSpan(new BulletSpan(10, Color.BLACK, 8), 1, 46, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        msg3.setSpan(new BulletSpan(10, Color.BLACK, 8), 1, 39, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        msg4.setSpan(new BulletSpan(10, Color.BLACK, 8), 1, 50, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        String toastMsg = msg1+"\n"+msg2+"\n"+msg3+"\n"+msg4;
+        String toastMsg = msg1 + "\n" + msg2 + "\n" + msg3 + "\n" + msg4;
         FloatingActionButton fab = findViewById(R.id.LoginFab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,6 +150,11 @@ public class LoginActivity extends AppCompatActivity {
                         passwordEditText.getText().toString());
             }
         });
+
+        //BACK ARROW
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
@@ -161,8 +166,14 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
 
-    public void register(View v){
+    public void register(View v) {
         Intent in = new Intent(this, RegisterActivity.class);
         startActivity(in);
+    }
+
+    @Override   //BACK ARROW
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

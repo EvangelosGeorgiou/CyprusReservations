@@ -80,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
+        if(id == R.id.signin){
+            Intent in = new Intent(this,LoginActivity.class);
+            startActivity(in);
+        }
         return super.onOptionsItemSelected(item);
     }
 

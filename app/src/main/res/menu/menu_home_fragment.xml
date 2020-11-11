@@ -7,4 +7,11 @@
         android:title="Search"
         app:showAsAction="always"
         app:actionViewClass="android.widget.SearchView" />
+
+    <item
+        android:id="@+id/signin"
+        android:icon="@drawable/ic_login"
+        android:title="Sign In"
+        app:showAsAction="always"
+        />
 </menu>
