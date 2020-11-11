@@ -71,5 +71,10 @@ public class ReservationActivity extends AppCompatActivity {
 
 
     }
+    public void goToLocation(View v)
+    {
+        Intent in = new Intent(this, LocationActivity.class);
+        startActivity(in);
+    }
 
 }

@@ -2,7 +2,10 @@ package com.example.cyprusreservations;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -14,6 +17,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class LocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    StoreInfo storeInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,14 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        Intent in = getIntent();
+        storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
+        String address = storeInfo.getAddress();
+
+        TextView text = findViewById(R.id.etAddress);
+
+        text.setText(address);
     }
 
     /**

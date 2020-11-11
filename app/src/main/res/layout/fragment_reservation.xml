@@ -31,7 +31,6 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
-                android:shadowColor="#FF5722"
                 android:text="DATE OF RESERVATION"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="20sp" />
@@ -48,7 +47,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:shadowColor="#FF5722"
                 android:text="NUMBER OF GUESTS"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="20sp" />
@@ -70,7 +68,6 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
-                android:shadowColor="#FF5722"
                 android:text="RESERVATION TIME"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="20sp" />
