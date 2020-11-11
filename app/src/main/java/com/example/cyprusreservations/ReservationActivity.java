@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -50,17 +51,21 @@ public class ReservationActivity extends AppCompatActivity {
         String description = storeInfo.getDescription();
         float rate = storeInfo.getRating();
         int logo = storeInfo.getLogo();
+        String address = storeInfo.getAddress();
 
 
         TextView tvTitle =findViewById(R.id.tvTitle);
         TextView desc =findViewById(R.id.tvDescription);
         RatingBar rating = findViewById(R.id.rbRating);
         ImageView l = findViewById(R.id.ivLogo);
+        Button button = findViewById(R.id.locationButton);
+
 
         l.setImageResource(logo);
         rating.setRating(rate);
         tvTitle.setText(title);
         desc.setText(description);
+        button.setText(address);
 
 
 

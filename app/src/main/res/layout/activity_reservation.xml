@@ -33,11 +33,10 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_height="68dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="100dp"
         android:background="#FFFFFF"
@@ -45,12 +44,34 @@
         app:tabRippleColor="#FF5722"
         app:tabTextColor="#03A9F4" />
 
+    <Button
+        android:id="@+id/locationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:drawableLeft="@android:drawable/ic_dialog_map"
+        android:onClick="goToLocation"
+        android:text="Location Address"
+        android:textColor="#0E0E0E"
+        app:backgroundTint="#817D7D" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginBottom="50dp"
+        android:drawableLeft="@android:drawable/ic_menu_recent_history"
+        android:text="Button"
+        android:textColor="#0E0E0E"
+        app:backgroundTint="#817D7D" />
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="304dp"
+        android:layout_height="280dp"
         android:layout_gravity="end"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="330dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

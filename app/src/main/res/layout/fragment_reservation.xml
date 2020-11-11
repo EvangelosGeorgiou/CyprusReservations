@@ -10,17 +10,27 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
             android:orientation="vertical">
+
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
                 android:shadowColor="#FF5722"
                 android:text="DATE OF RESERVATION"
                 android:textColor="@android:color/holo_blue_dark"
@@ -29,12 +39,15 @@
             <CalendarView
                 android:id="@+id/calendarView2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginTop="5dp" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:shadowColor="#FF5722"
                 android:text="NUMBER OF GUESTS"
                 android:textColor="@android:color/holo_blue_dark"
@@ -44,6 +57,8 @@
                 android:id="@+id/etGuests"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
                 android:ems="10"
                 android:inputType="number"
                 android:textSize="18sp" />
@@ -52,6 +67,9 @@
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
                 android:shadowColor="#FF5722"
                 android:text="RESERVATION TIME"
                 android:textColor="@android:color/holo_blue_dark"
@@ -59,15 +77,21 @@
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="10dp">
 
                     <RadioGroup
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <RadioButton
@@ -76,6 +100,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
                             android:text="12:00 am" />
 
                         <RadioButton
@@ -84,6 +109,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
                             android:text="12:30 am" />
 
                         <RadioButton
@@ -92,6 +118,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
                             android:text="13:00 am" />
 
                         <RadioButton
@@ -100,6 +127,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
                             android:layout_weight="1"
                             android:text="13:30 am" />
 
@@ -109,6 +137,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
                             android:layout_weight="1"
                             android:text="14:00 am" />
 
@@ -118,11 +147,23 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
                             android:layout_weight="1"
                             android:text="14:30 am" />
                     </RadioGroup>
+
                 </LinearLayout>
             </HorizontalScrollView>
+
+            <Button
+                android:id="@+id/bookButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:text="book now"
+                android:textColor="#0E0E0E"
+                app:backgroundTint="#817D7D" />
 
         </LinearLayout>
     </ScrollView>
