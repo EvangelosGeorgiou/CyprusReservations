@@ -47,14 +47,12 @@ public class PlaceholderFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_reservation, container, false);
-        TextView tv = root.findViewById(R.id.section_label);
+       // TextView tv = root.findViewById(R.id.section_label);
 
 
         if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)
         {
             //View root = inflater.inflate(R.layout.fragment_example, container, false);
-            tv.setText("Iaso kokla");
-
 
 
 
