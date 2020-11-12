@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -72,16 +71,15 @@ public class ReservationActivity extends AppCompatActivity {
     }
     public void goToLocation(View v)
     {
-        Intent in = new Intent(this, LocationActivity.class);
-        Intent in1 = getIntent();
-        storeInfo = (StoreInfo) in1.getSerializableExtra("storeInfo");
-        String address = storeInfo.getAddress();
+        //Intent in = getIntent();
+        //storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
+        //String address = storeInfo.getAddress();
+        //TextView text = findViewById(R.id.textAddress);
+        //text.setText(address);
 
-        EditText text = findViewById(R.id.etAddress);
+        Intent in1 = new Intent(this, LocationActivity.class);
+        startActivity(in1);
 
-        text.setText(address);
-
-        startActivity(in);
     }
 
 }
