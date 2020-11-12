@@ -8,7 +8,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv1"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="238dp"
         android:layout_margin="15dp"
         android:animateLayoutChanges="true"
         android:animationCache="false"
@@ -34,14 +34,14 @@
                     android:layout_height="150dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="15dp"
                     android:src="@drawable/ic_launcher_background" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/LinearLayout"
-                android:layout_width="wrap_content"
+                android:layout_width="170dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="0dp"
                 android:orientation="vertical">
@@ -55,7 +55,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="40dp"
                     android:gravity="center"
-                    android:text="nbkb"
+                    android:text="TITLE"
                     android:textSize="17sp" />
 
                 <TextView
@@ -64,13 +64,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:text="bkn"
+                    android:layout_marginBottom="20dp"
+                    android:text="description"
                     android:textSize="14sp" />
 
                 <RatingBar
                     android:id="@+id/rbRating"
                     android:layout_width="wrap_content"
-                    android:layout_height="39dp"
+                    android:layout_height="10dp"
                     android:layout_gravity="center"
                     android:isIndicator="true"
                     android:numStars="5"

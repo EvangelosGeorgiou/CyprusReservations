@@ -1,11 +1,13 @@
 package com.example.cyprusreservations;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.EditText;
+
 import android.widget.TextView;
+
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -17,16 +19,22 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class LocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    StoreInfo storeInfo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        Intent in = getIntent();
+        Bundle info = in.getExtras();
+        TextView text = findViewById(R.id.textAddress);
+        text.setText(info.getString("address"));
 
 
     }
@@ -45,9 +53,50 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        Intent in = getIntent();
+        Bundle info = in.getExtras();
+
+        String location =info.getString("marker");
+        LatLng coords = info.getParcelable("coordinates");
+
+        if(location.equals("Pier One"))
+        {
+            mMap.addMarker(new MarkerOptions().position(coords).title("Pier One"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coords, 15));
+            mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+
+        }
+        else if(location.equals("Αγράμπελη"))
+        {
+            mMap.addMarker(new MarkerOptions().position(coords).title("Αγράμπελη"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coords, 15));
+            mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        }
+        else if(location.equals("Η Γωνιά"))
+        {
+            mMap.addMarker(new MarkerOptions().position(coords).title("Η Γωνιά"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coords,15));
+            mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        }
+        else if(location.equals("Finders"))
+        {
+            mMap.addMarker(new MarkerOptions().position(coords).title("Finders"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coords,15));
+            mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        }
+        else if(location.equals("Baraki Live"))
+        {
+            mMap.addMarker(new MarkerOptions().position(coords).title("Baraki Live"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coords,15));
+            mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        }
+        else if(location.equals("Confuzio Cafe"))
+        {
+            mMap.addMarker(new MarkerOptions().position(coords).title("Confuzio Cafe"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coords,15));
+            mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        }
+
+
     }
 }

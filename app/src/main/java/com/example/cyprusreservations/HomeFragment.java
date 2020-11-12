@@ -1,5 +1,6 @@
-package com.example.cyprusreservations.ui.home;
+package com.example.cyprusreservations;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,18 +20,25 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.cyprusreservations.CustomAdaptor;
+import com.example.cyprusreservations.MainActivity;
 import com.example.cyprusreservations.R;
 import com.example.cyprusreservations.StoreInfo;
+import com.example.cyprusreservations.ui.login.LoginActivity;
+import com.google.android.gms.maps.model.LatLng;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
     private ListView listView;
+    private String login = "";
 
-    String[] titles = {"Piero One","Αγράμπελη","Η Γωνιά", "Finders", "Baraki Live","Confuzio Cafe"};
+    String[] titles = {"Pier One","Αγράμπελη","Η Γωνιά", "Finders", "Baraki Live","Confuzio Cafe"};
     String[] description = {"Cafe,RestoBar","Cafe,Bar","Cafe,Bar", "Restaurant,Bar","Bar"," Cafe"};
     int[] logo = {R.drawable.pieronelogo,R.drawable.agrampeli_logo,R.drawable.gonia_logo,R.drawable.finders_grill_bar_logo,R.drawable.barakilive_logo,R.drawable.confuzio_logo};
     float[] rating = {(float)4.2, 5, (float)4.2 , (float) 4.3 , (float) 4.3, (float)4.2};
@@ -55,12 +64,14 @@ public class HomeFragment extends Fragment {
             listStoreInfo.add(storeInfo);
         }
 
+
         customAdaptor = new CustomAdaptor(listStoreInfo,this.getContext());
         listView.setAdapter(customAdaptor);
 
+
+
         return root;
     }
-    //TODO search
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
@@ -93,6 +104,29 @@ public class HomeFragment extends Fragment {
         if(id == R.id.app_bar_search)
             return true;
 
+        if(id == R.id.menu_signin){
+            Intent in = new Intent(getActivity(),LoginActivity.class);
+            startActivity(in);
+        }
+
+        if(isLogin().equals("true")){
+            MenuItem signin_icon = getActivity().findViewById(R.id.menu_signin);
+            signin_icon.setVisible(false);
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    public String isLogin(){
+        Intent in = getActivity().getIntent();
+        login = in.getStringExtra(LoginActivity.LOGIN_STATUS);
+        System.out.println("isLogin = "+login);
+
+        if(login == null){
+            return login = "";
+        }else if(login.equals("true")) {
+            return login = "true";
+        }
+        return login = "";
     }
 }
