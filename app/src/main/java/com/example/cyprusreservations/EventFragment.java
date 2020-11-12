@@ -1,4 +1,4 @@
-package com.example.cyprusreservations.ui.gallery;
+package com.example.cyprusreservations;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,16 +12,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.cyprusreservations.R;
+public class EventFragment extends Fragment {
 
-public class GalleryFragment extends Fragment {
-
-    private GalleryViewModel galleryViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+        View root = inflater.inflate(R.layout.fragment_events, container, false);
         final TextView textView = root.findViewById(R.id.text_gallery);
 
         return root;

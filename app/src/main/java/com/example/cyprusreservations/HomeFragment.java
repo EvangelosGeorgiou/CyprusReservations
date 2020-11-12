@@ -1,4 +1,4 @@
-package com.example.cyprusreservations.ui.home;
+package com.example.cyprusreservations;
 
 import android.content.Intent;
 import android.os.Bundle;
