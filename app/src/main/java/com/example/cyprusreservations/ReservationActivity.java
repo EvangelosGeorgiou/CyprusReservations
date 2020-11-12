@@ -10,10 +10,9 @@ import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -74,6 +73,14 @@ public class ReservationActivity extends AppCompatActivity {
     public void goToLocation(View v)
     {
         Intent in = new Intent(this, LocationActivity.class);
+        Intent in1 = getIntent();
+        storeInfo = (StoreInfo) in1.getSerializableExtra("storeInfo");
+        String address = storeInfo.getAddress();
+
+        EditText text = findViewById(R.id.etAddress);
+
+        text.setText(address);
+
         startActivity(in);
     }
 

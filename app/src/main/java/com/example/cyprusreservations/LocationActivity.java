@@ -28,14 +28,9 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        Intent in = getIntent();
-        storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
-        String address = storeInfo.getAddress();
 
-        TextView text = findViewById(R.id.etAddress);
-
-        text.setText(address);
     }
+
 
     /**
      * Manipulates the map once available.
