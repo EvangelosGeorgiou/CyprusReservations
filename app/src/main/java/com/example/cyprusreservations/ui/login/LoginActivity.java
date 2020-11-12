@@ -7,7 +7,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -16,10 +15,7 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
-import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextWatcher;
-import android.text.style.BulletSpan;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -32,11 +28,6 @@ import android.widget.Toast;
 import com.example.cyprusreservations.MainActivity;
 import com.example.cyprusreservations.R;
 import com.example.cyprusreservations.RegisterActivity;
-import com.example.cyprusreservations.ui.home.HomeFragment;
-import com.example.cyprusreservations.ui.login.LoginViewModel;
-import com.example.cyprusreservations.ui.login.LoginViewModelFactory;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;

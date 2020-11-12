@@ -1,4 +1,4 @@
-package com.example.cyprusreservations.ui.gallery;
+package com.example.cyprusreservations;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,7 +16,6 @@ import com.example.cyprusreservations.R;
 
 public class GalleryFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
