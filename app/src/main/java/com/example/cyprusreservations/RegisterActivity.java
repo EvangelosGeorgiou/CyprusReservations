@@ -19,7 +19,11 @@ import com.example.cyprusreservations.ui.login.LoginActivity;
 import com.example.cyprusreservations.ui.login.LoginViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -35,8 +39,8 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        //TODO BULLEPOINTS
-        SpannableString msg1 = new SpannableString("Password must be between 8-15 charaWcters");
+        //TODO BULLET POINTS
+        SpannableString msg1 = new SpannableString("Password must be between 8-15 characters");
         SpannableString msg2 = new SpannableString("Password must contain at least 1 Capital Letter");
         SpannableString msg3 = new SpannableString("Password must contain at least 1 Number");
         SpannableString msg4 = new SpannableString("Password must contain at least 1 Special Character");
@@ -95,7 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (b_email && b_name && b_pass && b_pass2) {
             try {
-                deleteFile(file);
+                //deleteFile(file);
                 FileOutputStream fout = openFileOutput(file, 0);
                 fout.write(name.getBytes());
                 fout.write(surname.getBytes());
@@ -104,6 +108,8 @@ public class RegisterActivity extends AppCompatActivity {
                 fout.write(phone.getBytes());
                 fout.close();
                 Toast.makeText(getApplicationContext(), "You have successfully register to the Cyprus Reservations! ", Toast.LENGTH_SHORT).show();
+
+
             } catch (Exception ex) {
                 ex.printStackTrace();
                 Toast.makeText(getApplicationContext(), "something went wrong", Toast.LENGTH_SHORT).show();

@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private String file = "CustomerRegistration.txt";
     private LoginViewModel loginViewModel;
+    public static final String LOGIN_STATUS = "";
 
     @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
@@ -61,18 +62,18 @@ public class LoginActivity extends AppCompatActivity {
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
-        //TODO FILES NOT WORKING
         //GETTING THE DATA OUT OF THE FILE
         try {
-            FileInputStream fin = openFileInput(file);
+            FileInputStream fin = openFileInput("CustomerRegistration.txt");
             DataInputStream din = new DataInputStream(fin);
             InputStreamReader isr = new InputStreamReader(din);
             BufferedReader br  = new BufferedReader(isr);
-System.out.println("inside the try");
+
             int i = 0;
-            String lines[] = new String[3];
+            String lines[] = new String[5];
             String strLine;
             while((strLine = br.readLine()) != null){
+                System.out.println("file info "+lines[i]);
                 lines[i] = strLine;
                 i++;
             }
@@ -171,7 +172,8 @@ System.out.println("inside the try");
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
-        Intent in = new Intent(this, HomeFragment.class);
+        Intent in = new Intent(this, MainActivity.class);
+        in.putExtra(LOGIN_STATUS, "true");
         startActivity(in);
     }
 
