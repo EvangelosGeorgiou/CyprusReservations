@@ -60,7 +60,7 @@ public class PlaceholderFragment extends Fragment {
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
         {
 
-            //View root = inflater.inflate(R.layout.fragment_example, container, false);
+            root = inflater.inflate(R.layout.fragment_events, container, false);
             //Rafa dame prepi na valis to fragment gia to events pou ena dimiourgisis
         }
         return root;
