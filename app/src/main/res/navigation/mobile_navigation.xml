@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.cyprusreservations.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_events"
+        android:name="com.example.cyprusreservations.EventFragment"
+        android:label="Events"
+        tools:layout="@layout/fragment_events" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.cyprusreservations.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_myreservations"
+        android:name="com.example.cyprusreservations.MyReservationsFragment"
+        android:label="My Reservations"
+        tools:layout="@layout/fragment_myreservations" />
 </navigation>
