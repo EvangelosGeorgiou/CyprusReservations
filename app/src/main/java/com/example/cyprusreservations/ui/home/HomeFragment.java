@@ -24,6 +24,7 @@ import com.example.cyprusreservations.MainActivity;
 import com.example.cyprusreservations.R;
 import com.example.cyprusreservations.StoreInfo;
 import com.example.cyprusreservations.ui.login.LoginActivity;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -37,13 +38,15 @@ public class HomeFragment extends Fragment {
     private ListView listView;
     private String login = "";
 
-    String[] titles = {"Piero One","Αγράμπελη","Η Γωνιά", "Finders", "Baraki Live","Confuzio Cafe"};
+    String[] titles = {"Pier One","Αγράμπελη","Η Γωνιά", "Finders", "Baraki Live","Confuzio Cafe"};
     String[] description = {"Cafe,RestoBar","Cafe,Bar","Cafe,Bar", "Restaurant,Bar","Bar"," Cafe"};
     int[] logo = {R.drawable.pieronelogo,R.drawable.agrampeli_logo,R.drawable.gonia_logo,R.drawable.finders_grill_bar_logo,R.drawable.barakilive_logo,R.drawable.confuzio_logo};
     float[] rating = {(float)4.2, 5, (float)4.2 , (float) 4.3 , (float) 4.3, (float)4.2};
     int[] phone = {25022375,25344314, 25115315,22750700, 96072277,25738883};
     String[] address = {"Old Port Λεμεσός, 3042","Hatziloizi Mihailidi 12, Λεμεσός 3041", "Hatziloizi Mihailidi , Λεμεσός 3041",
                         "28ης Οκτωβρίου 13, Έγκωμη 2414","Γεώργιου Γρίβα Διγενή, Λευκωσία","Λεωφ. Αρχ. Μακαρίου Γ', Λεμεσός 3021"};
+
+
 
     CustomAdaptor customAdaptor;
     private List<StoreInfo> listStoreInfo = new ArrayList<>();
