@@ -17,7 +17,7 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Must be a valid gmail account</string>
-    <string name="invalid_password">Password format incorrect. Check the FAB button for more!</string>
+    <string name="invalid_password">Password format is incorrect.</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_reservation">ReservationActivity</string>
     <string name="tab_text_1">Reservation</string>

@@ -67,7 +67,7 @@ public class LoginViewModel extends ViewModel {
     }
 
     // A placeholder password validation check
-    private boolean isPasswordValid(String password) {
+    public boolean isPasswordValid(String password) {
 
         if(password.trim().length()>8 && password.trim().length()<15 && hasNumber(password) && hasSpecialChar(password) && hasCapitalLeter(password)){
             return true;
@@ -76,21 +76,18 @@ public class LoginViewModel extends ViewModel {
         }
     }
 
-    private boolean hasNumber(String pass){
+    public boolean hasNumber(String pass){
         for(int i=0; i<pass.length();i++){
             if(Character.isDigit(pass.charAt(i))){
-                System.out.println("has number = true");
                 return true;
             }
         }
-        System.out.println("has number = false");
         return false;
     }
 
     public Boolean hasSpecialChar(String s) {
         //int counter =0;
         if (s == null || s.trim().isEmpty()) {
-            System.out.println("has special char false");
             return false;
         }
         Pattern p = Pattern.compile("[^A-Za-z0-9]");
@@ -99,20 +96,16 @@ public class LoginViewModel extends ViewModel {
 
         boolean b = m.find();
         if (b == true) {
-            System.out.println("has special char true");
             return true;
         }else {
-            System.out.println("has special char false");
             return false;
         }
     }
 
     public Boolean hasCapitalLeter(String pass){
         if(pass.equals(pass.toLowerCase())){
-            System.out.println("has capital Letter false");
             return false;
         }else{
-            System.out.println("has special char true");
             return true;
         }
     }

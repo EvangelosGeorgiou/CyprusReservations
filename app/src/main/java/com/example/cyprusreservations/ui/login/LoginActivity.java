@@ -38,8 +38,14 @@ import com.example.cyprusreservations.ui.login.LoginViewModelFactory;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
 public class LoginActivity extends AppCompatActivity {
 
+    private String file = "CustomerRegistration.txt";
     private LoginViewModel loginViewModel;
 
     @RequiresApi(api = Build.VERSION_CODES.P)
@@ -50,30 +56,37 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        //TODO BULLEPOINTS
-        SpannableString msg1 = new SpannableString("Password must be between 8-15 charaWcters");
-        SpannableString msg2 = new SpannableString("Password must contain at least 1 Capital Letter");
-        SpannableString msg3 = new SpannableString("Password must contain at least 1 Number");
-        SpannableString msg4 = new SpannableString("Password must contain at least 1 Special Character");
-        msg1.setSpan(new BulletSpan(10, Color.BLACK, 8), 1, 40, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        msg2.setSpan(new BulletSpan(10, Color.BLACK, 8), 1, 46, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        msg3.setSpan(new BulletSpan(10, Color.BLACK, 8), 1, 39, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        msg4.setSpan(new BulletSpan(10, Color.BLACK, 8), 1, 50, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        String toastMsg = msg1 + "\n" + msg2 + "\n" + msg3 + "\n" + msg4;
-        FloatingActionButton fab = findViewById(R.id.LoginFab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), toastMsg, Toast.LENGTH_LONG).show();
-            }
-        });
-
-
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+
+        //TODO FILES NOT WORKING
+        //GETTING THE DATA OUT OF THE FILE
+        try {
+            FileInputStream fin = openFileInput(file);
+            DataInputStream din = new DataInputStream(fin);
+            InputStreamReader isr = new InputStreamReader(din);
+            BufferedReader br  = new BufferedReader(isr);
+System.out.println("inside the try");
+            int i = 0;
+            String lines[] = new String[3];
+            String strLine;
+            while((strLine = br.readLine()) != null){
+                lines[i] = strLine;
+                i++;
+            }
+            usernameEditText.setText(lines[2]);
+            passwordEditText.setText(lines[3]);
+
+            Toast.makeText(getApplicationContext(), "Welcome "+lines[0] , Toast.LENGTH_SHORT).show();
+            fin.close();
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            Toast.makeText(getApplicationContext(), "something went wrong", Toast.LENGTH_SHORT).show();
+            System.out.println("Error ---> "+ex);
+        }
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -167,7 +180,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void register(View v) {
-        Intent in = new Intent(this, RegisterActivity.class);
+        Intent in = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(in);
     }
 
