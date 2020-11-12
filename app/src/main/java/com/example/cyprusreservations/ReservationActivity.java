@@ -1,6 +1,7 @@
 package com.example.cyprusreservations;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -8,6 +9,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.annotation.RequiresApi;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,10 +21,17 @@ import android.widget.TextView;
 
 import com.example.cyprusreservations.ui.main.SectionsPagerAdapter;
 
+
+import java.time.LocalTime;
+import java.util.Calendar;
+import java.util.Date;
+
+
 public class ReservationActivity extends AppCompatActivity {
 
     StoreInfo storeInfo;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +67,7 @@ public class ReservationActivity extends AppCompatActivity {
         RatingBar rating = findViewById(R.id.rbRating);
         ImageView l = findViewById(R.id.ivLogo);
         Button button = findViewById(R.id.locationButton);
+        //Button button1 = findViewById(R.id.button4);
 
 
         l.setImageResource(logo);
@@ -65,6 +75,15 @@ public class ReservationActivity extends AppCompatActivity {
         tvTitle.setText(title);
         desc.setText(description);
         button.setText(address);
+
+
+
+        /*
+        String currentDateTimeString = java.text.DateFormat.getTimeInstance().format(new Date());
+        //button1.setText(currentDateTimeString);
+        LocalTime time = LocalTime.parse(currentDateTimeString);
+
+        */
 
 
 

@@ -90,7 +90,7 @@
                 <RatingBar
                     android:id="@+id/rbRating"
                     android:layout_width="wrap_content"
-                    android:layout_height="39dp"
+                    android:layout_height="9dp"
                     android:layout_gravity="center"
                     android:isIndicator="true"
                     android:numStars="5"
@@ -100,10 +100,10 @@
                 <Button
                     android:id="@+id/button4"
                     android:layout_width="146dp"
-                    android:layout_height="62dp"
+                    android:layout_height="70dp"
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="80dp"
                     android:drawableLeft="@android:drawable/ic_menu_recent_history"
                     android:text="Button"
                     android:textColor="#0E0E0E"
