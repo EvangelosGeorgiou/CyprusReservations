@@ -18,7 +18,7 @@ public class EventFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        View root = inflater.inflate(R.layout.fragment_events, container, false);
+        View root = inflater.inflate(R.layout.fragment_sidebar_events, container, false);
         final TextView textView = root.findViewById(R.id.text_gallery);
 
         return root;
