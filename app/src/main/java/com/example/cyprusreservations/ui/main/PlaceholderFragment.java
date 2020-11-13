@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -48,20 +50,31 @@ public class PlaceholderFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_reservation, container, false);
-       // TextView tv = root.findViewById(R.id.section_label);
+
 
 
         if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)
         {
-           // CalendarView calendar = root.findViewById(R.id.calendarView2);
+            /*
+
+            // CalendarView calendar = root.findViewById(R.id.calendarView2);
+            CalendarView calendarView = (CalendarView) root.findViewById(R.id.calendarView);
+            EditText guests = root.findViewById(R.id.etGuests);
+            RadioGroup group = root.findViewById(R.id.rbGroup);
+
+            int selection = group.getCheckedRadioButtonId();
+
+            long selectedDate = calendarView.getDate(); // get selected date in milliseconds
+            String selectedGuests = guests.getText().toString();
+            */
 
 
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
         {
 
-            root = inflater.inflate(R.layout.fragment_tab_activity_events, container, false);
-            //Rafa dame prepi na valis to fragment gia to events pou ena dimiourgisis
+             root = inflater.inflate(R.layout.fragment_tab_activity_events, container, false);
+
         }
         return root;
     }
