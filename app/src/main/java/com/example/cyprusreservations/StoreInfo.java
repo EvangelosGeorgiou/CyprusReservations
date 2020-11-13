@@ -11,8 +11,12 @@ public class StoreInfo implements Serializable {
     private String address;
     private String music;
     private String football;
+    private String openHour;
+    private String closeHour;
 
-    public StoreInfo(String title, String description, int logo, float rating, int phone, String address, String music, String football) {
+
+    public StoreInfo(String title, String description, int logo, float rating, int phone, String address,
+                     String music, String football, String openHour, String closeHour) {
         this.title = title;
         this.description = description;
         this.rating = rating;
@@ -21,6 +25,9 @@ public class StoreInfo implements Serializable {
         this.address = address;
         this.music = music;
         this.football = football;
+        this.openHour = openHour;
+        this.closeHour = closeHour;
+
     }
     public String getMusic() { return music;}
     public void setMusic(String music) {
@@ -79,4 +86,18 @@ public class StoreInfo implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public String getOpenHour() {
+        return openHour;
+    }
+
+    public void setOpenHour(String openHour){this.openHour = openHour;}
+
+    public String getCloseHour() {
+        return closeHour;
+    }
+
+    public void setCloseHour(String closeHour){this.closeHour = closeHour;}
+
+
 }

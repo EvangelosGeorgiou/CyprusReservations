@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -52,8 +53,7 @@ public class PlaceholderFragment extends Fragment {
 
         if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)
         {
-
-
+           // CalendarView calendar = root.findViewById(R.id.calendarView2);
 
 
         }

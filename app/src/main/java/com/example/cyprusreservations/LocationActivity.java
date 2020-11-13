@@ -35,6 +35,20 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
         Bundle info = in.getExtras();
         TextView text = findViewById(R.id.textAddress);
         text.setText(info.getString("address"));
+        TextView text1 = findViewById(R.id.tvMonday);
+        text1.setText(info.getString("openHour") +" - "+ info.getString("closeHour") );
+        TextView text2 = findViewById(R.id.tvTuesday);
+        text2.setText(info.getString("openHour") +" - "+ info.getString("closeHour") );
+        TextView text3 = findViewById(R.id.tvWednesday);
+        text3.setText(info.getString("openHour") +" - "+ info.getString("closeHour") );
+        TextView text4 = findViewById(R.id.tvThursday);
+        text4.setText(info.getString("openHour") +" - "+ info.getString("closeHour") );
+        TextView text5 = findViewById(R.id.tvFriday);
+        text5.setText(info.getString("openHour") +" - "+ info.getString("closeHour") );
+        TextView text6 = findViewById(R.id.tvSaturday);
+        text6.setText(info.getString("openHour") +" - "+ info.getString("closeHour") );
+        TextView text7 = findViewById(R.id.tvSunday);
+        text7.setText(info.getString("openHour") +" - "+ info.getString("closeHour") );
 
 
     }
