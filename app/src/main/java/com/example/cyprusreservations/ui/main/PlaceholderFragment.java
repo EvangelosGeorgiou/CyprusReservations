@@ -1,5 +1,6 @@
 package com.example.cyprusreservations.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.cyprusreservations.LocationActivity;
 import com.example.cyprusreservations.R;
 
 /**
@@ -55,18 +57,9 @@ public class PlaceholderFragment extends Fragment {
 
         if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)
         {
-            /*
+            root = inflater.inflate(R.layout.fragment_reservation, container, false);
 
-            // CalendarView calendar = root.findViewById(R.id.calendarView2);
-            CalendarView calendarView = (CalendarView) root.findViewById(R.id.calendarView);
-            EditText guests = root.findViewById(R.id.etGuests);
-            RadioGroup group = root.findViewById(R.id.rbGroup);
 
-            int selection = group.getCheckedRadioButtonId();
-
-            long selectedDate = calendarView.getDate(); // get selected date in milliseconds
-            String selectedGuests = guests.getText().toString();
-            */
 
 
         }
@@ -78,4 +71,5 @@ public class PlaceholderFragment extends Fragment {
         }
         return root;
     }
+
 }

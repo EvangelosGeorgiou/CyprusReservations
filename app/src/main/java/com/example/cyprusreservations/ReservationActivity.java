@@ -15,7 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -176,6 +179,190 @@ public class ReservationActivity extends AppCompatActivity {
         in1.putExtras(info);
         startActivity(in1);
 
+    }
+    public void bookNow(View v)
+    {
+
+        Bundle info1 = new Bundle();
+
+        Intent in = getIntent();
+        storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
+        int logo = storeInfo.getLogo();
+        String title = storeInfo.getTitle();
+        String description = storeInfo.getDescription();
+
+        info1.putInt("logo", logo);
+        info1.putString("title",title);
+        info1.putString("description", description);
+
+
+
+        CalendarView calendarView =findViewById(R.id.calendarView);
+        EditText guests = findViewById(R.id.etGuests);
+        RadioGroup group = findViewById(R.id.rbGroup);
+
+        int selection = group.getCheckedRadioButtonId();
+
+        long selectedDate = calendarView.getDate();
+        String selectedGuests = guests.getText().toString();
+        String selectedTime = "";
+        if(selection == R.id.radioButton15)
+        {
+            selectedTime = "08:00";
+        }
+        else if(selection == R.id.radioButton14)
+        {
+            selectedTime = "08:30";
+        }
+        else if(selection == R.id.radioButton13)
+        {
+            selectedTime = "09:00";
+        }
+        else if(selection == R.id.radioButton12)
+        {
+            selectedTime = "09:30";
+        }
+        else if(selection == R.id.radioButton11)
+        {
+            selectedTime = "10:00";
+        }
+        else if(selection == R.id.radioButton10)
+        {
+            selectedTime = "10:30";
+        }
+        else if(selection == R.id.radioButton3)
+        {
+            selectedTime = "11:00";
+        }
+        else if(selection == R.id.radioButton2)
+        {
+            selectedTime = "11:30";
+        }
+        else if(selection == R.id.radioButton4)
+        {
+            selectedTime = "12:00";
+        }
+        else if(selection == R.id.radioButton5)
+        {
+            selectedTime = "12:30";
+        }
+        else if(selection == R.id.radioButton6)
+        {
+            selectedTime = "13:00";
+        }
+        else if(selection == R.id.radioButton7)
+        {
+            selectedTime = "13:30";
+        }
+        else if(selection == R.id.radioButton8)
+        {
+            selectedTime = "14:00";
+        }
+        else if(selection == R.id.radioButton9)
+        {
+            selectedTime = "14:30";
+        }
+        else if(selection == R.id.radioButton)
+        {
+            selectedTime = "15:00";
+        }
+        else if(selection == R.id.radioButton16)
+        {
+            selectedTime = "15:30";
+        }
+        else if(selection == R.id.radioButton17)
+        {
+            selectedTime = "16:00";
+        }
+        else if(selection == R.id.radioButton18)
+        {
+            selectedTime = "16:30";
+        }
+        else if(selection == R.id.radioButton19)
+        {
+            selectedTime = "17:00";
+        }
+        else if(selection == R.id.radioButton20)
+        {
+            selectedTime = "17:30";
+        }
+        else if(selection == R.id.radioButton21)
+        {
+            selectedTime = "18:00";
+        }
+        else if(selection == R.id.radioButton22)
+        {
+            selectedTime = "18:30";
+        }
+        else if(selection == R.id.radioButton27)
+        {
+            selectedTime = "19:00";
+        }
+        else if(selection == R.id.radioButton28)
+        {
+            selectedTime = "19:30";
+        }
+        else if(selection == R.id.radioButton29)
+        {
+            selectedTime = "20:00";
+        }
+        else if(selection == R.id.radioButton30)
+        {
+            selectedTime = "20:30";
+        }
+        else if(selection == R.id.radioButton31)
+        {
+            selectedTime = "21:00";
+        }
+        else if(selection == R.id.radioButton32)
+        {
+            selectedTime = "21:30";
+        }
+        else if(selection == R.id.radioButton33)
+        {
+            selectedTime = "22:00";
+        }
+        else if(selection == R.id.radioButton34)
+        {
+            selectedTime = "22:30";
+        }
+        else if(selection == R.id.radioButton35)
+        {
+            selectedTime = "23:00";
+        }
+        else if(selection == R.id.radioButton36)
+        {
+            selectedTime = "23:30";
+        }
+        else if(selection == R.id.radioButton37)
+        {
+            selectedTime = "00:00";
+        }
+        else if(selection == R.id.radioButton38)
+        {
+            selectedTime = "00:30";
+        }
+        else if(selection == R.id.radioButton39)
+        {
+            selectedTime = "01:00";
+        }
+        else if(selection == R.id.radioButton40)
+        {
+            selectedTime = "01:30";
+        }
+        else if(selection == R.id.radioButton41)
+        {
+            selectedTime = "02:00";
+        }
+
+        info1.putString("selectedTime", selectedTime);
+        info1.putLong("selectedDate", selectedDate);
+        info1.putString("selectedGuests", selectedGuests);
+
+
+        Intent in1 = new Intent(this, MyReservationsFragment.class);
+        in1.putExtras(info1);
+        startActivity(in1);
     }
 
 
