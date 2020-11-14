@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -59,9 +60,10 @@ public class PlaceholderFragment extends Fragment {
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
         {
-
             root = inflater.inflate(R.layout.fragment_tab_activity_events, container, false);
-            //Rafa dame prepi na valis to fragment gia to events pou ena dimiourgisis
+            TextView date_events= root.findViewById(R.id.tvEvents);
+            CalendarView calendar = root.findViewById(R.id.calendarView2);
+            TextView events = root.findViewById(R.id.tvEvents2);
         }
         return root;
     }
