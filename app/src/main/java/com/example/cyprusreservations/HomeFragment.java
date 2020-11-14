@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class    HomeFragment extends Fragment {
 
     private ListView listView;
     private String login = "";
