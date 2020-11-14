@@ -62,7 +62,7 @@ public class LoginViewModel extends ViewModel {
         if (username.contains("@gmail.com")) {
             return true;
         } else {
-            return !username.trim().isEmpty();
+            return false;
         }
     }
 
