@@ -53,8 +53,7 @@ public class PlaceholderFragment extends Fragment {
 
         if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)
         {
-
-
+           // CalendarView calendar = root.findViewById(R.id.calendarView2);
 
 
         }

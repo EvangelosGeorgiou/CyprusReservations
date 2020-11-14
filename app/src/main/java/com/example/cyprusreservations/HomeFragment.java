@@ -30,7 +30,9 @@ import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class    HomeFragment extends Fragment {
@@ -38,6 +40,8 @@ public class    HomeFragment extends Fragment {
     private ListView listView;
     private String login = "";
 
+
+    //Iniatialize information about the stores
     String[] titles = {"Pier One","Αγράμπελη","Η Γωνιά", "Finders", "Baraki Live","Confuzio Cafe"};
     String[] description = {"Cafe,RestoBar","Cafe,Bar","Cafe,Bar", "Restaurant,Bar","Bar"," Cafe"};
     int[] logo = {R.drawable.pieronelogo,R.drawable.agrampeli_logo,R.drawable.gonia_logo,R.drawable.finders_grill_bar_logo,R.drawable.barakilive_logo,R.drawable.confuzio_logo};
@@ -47,6 +51,9 @@ public class    HomeFragment extends Fragment {
                         "28ης Οκτωβρίου 13, Έγκωμη 2414","Γεώργιου Γρίβα Διγενή, Λευκωσία","Λεωφ. Αρχ. Μακαρίου Γ', Λεμεσός 3021"};
     String[] music = {"Dj","Live","Karaoke","","Live",""};
     String[] football = {"","ΑΕΛ vs ΑΠΟΕΛ","","CHELSE vs LIVERPOOL","","","ΟΜΟΝΟΙΑ vs ΑΠΟΛΛΩΝΑ"};
+    String[] openHour = {"09:00","16:00","17:00","16:00","22:00","08:00"};
+    String[] closeHour = {"22:30","02:00","02:00","02:00","02:30","23:30"};
+
 
 
     CustomAdaptor customAdaptor;
@@ -60,15 +67,13 @@ public class    HomeFragment extends Fragment {
         setHasOptionsMenu(true);
         //stores all the information for shops in a list
         for(int i=0; i<titles.length; i++){
-            StoreInfo storeInfo = new StoreInfo(titles[i],description[i],logo[i],rating[i],phone[i],address[i],music[i],football[i]);
+            StoreInfo storeInfo = new StoreInfo(titles[i],description[i],logo[i],rating[i],phone[i],address[i],
+                    music[i],football[i],openHour[i],closeHour[i]);
             listStoreInfo.add(storeInfo);
         }
 
-
         customAdaptor = new CustomAdaptor(listStoreInfo,this.getContext());
         listView.setAdapter(customAdaptor);
-
-
 
         return root;
     }

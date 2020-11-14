@@ -18,10 +18,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cyprusreservations.ui.main.SectionsPagerAdapter;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
@@ -48,8 +51,7 @@ public class ReservationActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               Toast.makeText(getApplicationContext(), "Please fill all the fields and then press book now", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -60,6 +62,8 @@ public class ReservationActivity extends AppCompatActivity {
         float rate = storeInfo.getRating();
         int logo = storeInfo.getLogo();
         String address = storeInfo.getAddress();
+        String openHour = storeInfo.getOpenHour();
+        String closeHour = storeInfo.getCloseHour();
 
 
         TextView tvTitle =findViewById(R.id.tvTitle);
@@ -67,7 +71,7 @@ public class ReservationActivity extends AppCompatActivity {
         RatingBar rating = findViewById(R.id.rbRating);
         ImageView l = findViewById(R.id.ivLogo);
         Button button = findViewById(R.id.locationButton);
-        //Button button1 = findViewById(R.id.button4);
+        Button button1 = findViewById(R.id.button4);
 
 
         l.setImageResource(logo);
@@ -78,17 +82,51 @@ public class ReservationActivity extends AppCompatActivity {
 
 
 
-        /*
-        String currentDateTimeString = java.text.DateFormat.getTimeInstance().format(new Date());
-        //button1.setText(currentDateTimeString);
-        LocalTime time = LocalTime.parse(currentDateTimeString);
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        String currentTime = sdf.format(new Date());
 
-        */
+        int beforeTime = -1;
+        int afterTime = 1;
+        int equalTime = 0;
+        try{
+
+            Date time1 = sdf.parse(currentTime);
+            Date time2 = sdf.parse(closeHour);
+            Date time3 = sdf.parse(openHour);
+
+            // Outputs -1 as date1 is before date2
+            //date1.compareTo(date2)
+            // Outputs 1 as date1 is after date1
+            //date2.compareTo(date1);
+            // Outputs 0 as the dates are now equal
+            //date1.compareTo(date2);
+
+            if ( beforeTime == time1.compareTo(time2) && afterTime == time1.compareTo(time3) )
+            {
+                button1.setText("We are Open Now");
+            }
+            else
+            {
+                button1.setText("We are Close Now");
+            }
 
 
+        } catch (ParseException e){
+            Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
+        }
 
+        //BACK ARROW
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
     }
+
+    @Override   //BACK ARROW
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     public void goToLocation(View v)
     {
         Bundle info = new Bundle();
@@ -97,6 +135,8 @@ public class ReservationActivity extends AppCompatActivity {
         storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
         String address = storeInfo.getAddress();
         String title = storeInfo.getTitle();
+        String openHour = storeInfo.getOpenHour();
+        String closeHour = storeInfo.getCloseHour();
         LatLng coords;
         info.putString("address" , address);
 
@@ -137,7 +177,8 @@ public class ReservationActivity extends AppCompatActivity {
             info.putParcelable("coordinates", coords);
         }
 
-
+        info.putString("openHour",openHour);
+        info.putString("closeHour",closeHour);
 
 
         Intent in1 = new Intent(this, LocationActivity.class);

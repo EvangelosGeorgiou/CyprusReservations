@@ -25,6 +25,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cyprusreservations.HomeFragment;
 import com.example.cyprusreservations.MainActivity;
 import com.example.cyprusreservations.R;
 import com.example.cyprusreservations.RegisterActivity;
@@ -164,7 +165,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUiWithUser(LoggedInUserView model) {
         Intent in = new Intent(this, MainActivity.class);
-        in.putExtra(LOGIN_STATUS, "true");
+        in.putExtra(LOGIN_STATUS,"true");
         startActivity(in);
     }
 
