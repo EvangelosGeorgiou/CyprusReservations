@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:animateLayoutChanges="true"
+        android:animationCache="false"
+        android:clickable="false"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="173dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivLogo"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <Button
+                    android:id="@+id/locationButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+
+                    android:insetRight="0dp"
+                    android:onClick="goToLocation"
+                    android:text="Location Address"
+                    android:textColor="#0E0E0E"
+                    app:backgroundTint="#FFFFFF"
+                    app:icon="@drawable/location"
+                    app:iconGravity="textStart"
+                    app:iconSize="30dp"
+                    app:iconTint="@null"
+                    app:strokeColor="#040303"
+                    app:strokeWidth="2dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
+                    android:text="nbkb"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="bkn"
+                    android:textSize="14sp" />
+
+                <RatingBar
+                    android:id="@+id/rbRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="9dp"
+                    android:layout_gravity="center"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:progressDrawable="@drawable/ic_ratingbar"
+                    android:rating="1" />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="146dp"
+                    android:layout_height="85dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="80dp"
+                    android:drawableLeft="@android:drawable/ic_menu_recent_history"
+                    android:onClick="goToLocation"
+                    android:text="Button"
+                    android:textColor="#0E0E0E"
+                    app:backgroundTint="#FFFFFF"
+                    app:icon="@drawable/calendarhour"
+                    app:iconSize="30dp"
+                    app:iconTint="@null"
+                    app:strokeColor="#040303"
+                    app:strokeWidth="2dp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
