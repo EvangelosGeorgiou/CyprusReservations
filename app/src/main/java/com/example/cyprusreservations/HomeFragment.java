@@ -1,5 +1,8 @@
 package com.example.cyprusreservations;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -109,29 +112,39 @@ public class    HomeFragment extends Fragment {
         if(id == R.id.app_bar_search)
             return true;
 
-        if(id == R.id.menu_signin){
-            Intent in = new Intent(getActivity(),LoginActivity.class);
-            startActivity(in);
-        }
-
-        if(isLogin().equals("true")){
-            MenuItem signin_icon = getActivity().findViewById(R.id.menu_signin);
-            signin_icon.setVisible(false);
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
-    public String isLogin(){
-        Intent in = getActivity().getIntent();
-        login = in.getStringExtra(LoginActivity.LOGIN_STATUS);
-        System.out.println("isLogin = "+login);
+    public void signOut(View v){
+        logout(getActivity());
+    }
 
-        if(login == null){
-            return login = "";
-        }else if(login.equals("true")) {
-            return login = "true";
-        }
-        return login = "";
+    public void logout(Activity activity){
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+
+        //setting title
+        builder.setTitle("Logout");
+
+        //setting msg
+        builder.setMessage("Are you sure you want to logout?");
+
+        //adding yes button
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                activity.finishAffinity();
+                System.exit(0);
+            }
+        });
+
+        //adding Cancel button
+        builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        builder.show();
     }
 }

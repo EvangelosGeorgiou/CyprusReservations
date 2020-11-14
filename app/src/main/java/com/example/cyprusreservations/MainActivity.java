@@ -54,65 +54,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if (savedInstanceState == null){
-            fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.nav_host_fragment, new HomeFragment());
-            fragmentTransaction.commit();
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+        Intent in = getIntent();
+        String LOGIN_STATUS = in.getStringExtra(LoginActivity.LOGIN_STATUS);
+
+        if(LOGIN_STATUS ==null){
+            LOGIN_STATUS = "";
+        }else if (LOGIN_STATUS.equals("true")){
+            Menu nav_menu = navigationView.getMenu();
+            nav_menu.findItem(R.id.nav_signin).setVisible(false);
+            nav_menu.findItem(R.id.nav_signout).setVisible(true);
         }
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-
-        /*
-
-        drawer = findViewById(R.id.drawer_layout);
-        toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-
-
-         */
-
-
-
-
-
-
-        /*DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_events, R.id.nav_myreservations)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);*/
-
-//        Intent in = getIntent();
-//        String LOGIN_STATUS = in.getStringExtra(LoginActivity.LOGIN_STATUS);
-//
-//        if(LOGIN_STATUS ==null){
-//            LOGIN_STATUS = "";
-//        }else if (LOGIN_STATUS.equals("true")){
-//            Bundle bundle = new Bundle();
-//            bundle.putString("LOGIN_STATUS","true");
-//
-//            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//            HomeFragment homeFragment = new HomeFragment();
-//
-//            //transfer the data to the fragment
-//            homeFragment.setArguments(bundle);
-//        }
-
-
     }
 
     @Override
@@ -122,17 +77,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-
-        if(id == R.id.main_menu_signin){
-            Intent in = new Intent(this,LoginActivity.class);
-            startActivity(in);
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
 //    @Override
 //    public boolean onSupportNavigateUp() {
@@ -158,6 +102,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else if(id == R.id.nav_signin){
             Intent in = new Intent(this,LoginActivity.class);
             startActivity(in);
+        }else{
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.nav_host_fragment,new HomeFragment());
+            fragmentTransaction.commit();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
