@@ -57,6 +57,16 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), toastMsg, Toast.LENGTH_LONG).show();
             }
         });
+
+        //BACK ARROW
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    @Override   //BACK ARROW
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     public void registerbtn(View view) {
