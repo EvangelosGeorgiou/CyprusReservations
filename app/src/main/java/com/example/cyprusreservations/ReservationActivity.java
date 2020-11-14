@@ -118,9 +118,18 @@ public class ReservationActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
         }
 
-
+        //BACK ARROW
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
     }
+
+//    @Override   //BACK ARROW
+//    public boolean onSupportNavigateUp() {
+//        onBackPressed();
+//        return true;
+//    }
+
     public void goToLocation(View v)
     {
         Bundle info = new Bundle();

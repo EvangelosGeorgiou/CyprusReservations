@@ -1,13 +1,10 @@
 package com.example.cyprusreservations.ui.main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
-import android.widget.EditText;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -16,7 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.cyprusreservations.LocationActivity;
 import com.example.cyprusreservations.R;
 
 /**
@@ -52,24 +48,22 @@ public class PlaceholderFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_reservation, container, false);
-
+       // TextView tv = root.findViewById(R.id.section_label);
 
 
         if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)
         {
-            root = inflater.inflate(R.layout.fragment_reservation, container, false);
-
-
+           // CalendarView calendar = root.findViewById(R.id.calendarView2);
 
 
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
         {
-
-             root = inflater.inflate(R.layout.fragment_tab_activity_events, container, false);
-
+            root = inflater.inflate(R.layout.fragment_tab_activity_events, container, false);
+            TextView date_events= root.findViewById(R.id.tvEvents);
+            CalendarView calendar = root.findViewById(R.id.calendarView2);
+            TextView events = root.findViewById(R.id.tvEvents2);
         }
         return root;
     }
-
 }

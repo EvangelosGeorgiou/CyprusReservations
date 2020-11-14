@@ -12,6 +12,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -52,18 +53,21 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                int id = item.getItemId();
-//
-//                if(id == R.id.sign_in){
-//                    Intent in = new Intent(MainActivity.this, LoginActivity.class);
-//                    startActivity(in);
-//                }
-//                return true;
-//            }
-//        });
+        Intent in = getIntent();
+        String LOGIN_STATUS = in.getStringExtra(LoginActivity.LOGIN_STATUS);
+
+        if(LOGIN_STATUS ==null){
+            LOGIN_STATUS = "";
+        }else if (LOGIN_STATUS.equals("true")){
+            Bundle bundle = new Bundle();
+            bundle.putString("LOGIN_STATUS","true");
+
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            HomeFragment homeFragment = new HomeFragment();
+
+            //transfer the data to the fragment
+            homeFragment.setArguments(bundle);
+        }
 
 
     }
@@ -93,5 +97,4 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
 }

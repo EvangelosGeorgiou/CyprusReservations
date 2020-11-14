@@ -35,12 +35,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class    HomeFragment extends Fragment {
 
     private ListView listView;
     private String login = "";
 
 
+    //Iniatialize information about the stores
     String[] titles = {"Pier One","Αγράμπελη","Η Γωνιά", "Finders", "Baraki Live","Confuzio Cafe"};
     String[] description = {"Cafe,RestoBar","Cafe,Bar","Cafe,Bar", "Restaurant,Bar","Bar"," Cafe"};
     int[] logo = {R.drawable.pieronelogo,R.drawable.agrampeli_logo,R.drawable.gonia_logo,R.drawable.finders_grill_bar_logo,R.drawable.barakilive_logo,R.drawable.confuzio_logo};
@@ -71,12 +72,8 @@ public class HomeFragment extends Fragment {
             listStoreInfo.add(storeInfo);
         }
 
-
-
         customAdaptor = new CustomAdaptor(listStoreInfo,this.getContext());
         listView.setAdapter(customAdaptor);
-
-
 
         return root;
     }

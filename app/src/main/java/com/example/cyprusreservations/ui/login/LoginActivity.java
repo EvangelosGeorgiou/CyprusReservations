@@ -25,6 +25,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cyprusreservations.HomeFragment;
 import com.example.cyprusreservations.MainActivity;
 import com.example.cyprusreservations.R;
 import com.example.cyprusreservations.RegisterActivity;
@@ -64,7 +65,6 @@ public class LoginActivity extends AppCompatActivity {
             String lines[] = new String[5];
             String strLine;
             while((strLine = br.readLine()) != null){
-                System.out.println("file info "+lines[i]);
                 lines[i] = strLine;
                 i++;
             }
@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
 
         }catch (Exception ex){
             ex.printStackTrace();
-            Toast.makeText(getApplicationContext(), "something went wrong", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "something went wrong", Toast.LENGTH_SHORT).show();
             System.out.println("Error ---> "+ex);
         }
 
@@ -164,7 +164,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUiWithUser(LoggedInUserView model) {
         Intent in = new Intent(this, MainActivity.class);
-        in.putExtra(LOGIN_STATUS, "true");
+        in.putExtra(LOGIN_STATUS,"true");
         startActivity(in);
     }
 
