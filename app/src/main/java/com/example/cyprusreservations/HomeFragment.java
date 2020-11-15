@@ -55,7 +55,7 @@ public class    HomeFragment extends Fragment {
     String[] music = {"Dj","Live","Karaoke","","Live",""};
     String[] football = {"","ΑΕΛ vs ΑΠΟΕΛ","","CHELSE vs LIVERPOOL","","","ΟΜΟΝΟΙΑ vs ΑΠΟΛΛΩΝΑ"};
     String[] openHour = {"09:00","16:00","17:00","16:00","22:00","08:00"};
-    String[] closeHour = {"22:30","02:00","02:00","02:00","02:30","23:30"};
+    String[] closeHour = {"22:30","26:00","26:00","26:00","26:30","23:30"};
 
 
 
