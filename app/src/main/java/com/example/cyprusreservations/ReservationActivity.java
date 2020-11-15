@@ -9,10 +9,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -31,11 +33,13 @@ import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 
 public class ReservationActivity extends AppCompatActivity {
 
     StoreInfo storeInfo;
+    private static final String TAG ="ReservationActivity";
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -192,7 +196,7 @@ public class ReservationActivity extends AppCompatActivity {
     public void bookNow(View v)
     {
 
-        Bundle info1 = new Bundle();
+        Bundle info = new Bundle();
 
         Intent in = getIntent();
         storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
@@ -200,19 +204,49 @@ public class ReservationActivity extends AppCompatActivity {
         String title = storeInfo.getTitle();
         String description = storeInfo.getDescription();
 
-        info1.putInt("logo", logo);
-        info1.putString("title",title);
-        info1.putString("description", description);
+        info.putInt("logo", logo);
+        info.putString("title",title);
+        info.putString("description", description);
 
 
 
-        CalendarView calendarView =findViewById(R.id.calendarView);
+
+
         EditText guests = findViewById(R.id.etGuests);
         RadioGroup group = findViewById(R.id.rbGroup);
 
+
+
+        //Calendar c = Calendar.getInstance();
+        //SimpleDateFormat ss = new SimpleDateFormat("dd-MM-yyyy");
+        //Date date = new Date(String.valueOf(cv));
+        //String currentdate= ss.format(date);
+
+        CalendarView cv = (CalendarView) findViewById(R.id.calendarView);
+
+
+
+        cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int i, int i1, int i2) {
+                int month = i1;
+                int day = i;
+                int year = i2;
+
+                String date = month + "" + day + ""+  year;
+                    //Log.d(TAG,"onSelectedDayChange: mm/dd: "+ date);
+                info.putString("selectedDate",date);
+            }
+        });
+
+        //SimpleDateFormat sdf = new SimpleDateFormat("MMM d");
+        //String currentdate = sdf.format(new Date(cv.getDate()));
+
+
+
         int selection = group.getCheckedRadioButtonId();
 
-        long selectedDate = calendarView.getDate();
+       // long selectedDate = calendarView.getDate();
         String selectedGuests = guests.getText().toString();
         String selectedTime = "";
         if(selection == R.id.radioButton15)
@@ -364,13 +398,15 @@ public class ReservationActivity extends AppCompatActivity {
             selectedTime = "02:00";
         }
 
-        info1.putString("selectedTime", selectedTime);
-        info1.putLong("selectedDate", selectedDate);
-        info1.putString("selectedGuests", selectedGuests);
+        info.putString("selectedTime", selectedTime);
+
+        info.putString("selectedGuests", selectedGuests);
 
 
-        Intent in1 = new Intent(this, MyReservationsFragment.class);
-        in1.putExtras(info1);
+        Toast.makeText(getApplicationContext(), "Your reservation is pending. Please check again for confirmation ",Toast.LENGTH_LONG).show();
+
+        Intent in1 = new Intent(this, MyReservationsActivity.class);
+        in1.putExtras(info);
         startActivity(in1);
     }
 

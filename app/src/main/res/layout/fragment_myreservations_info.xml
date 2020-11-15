@@ -79,6 +79,7 @@
                     android:layout_marginTop="10dp"
                     android:drawableLeft="@drawable/pending"
                     android:text="Pending"
+                    android:textColor="#FF5722"
                     app:drawableTint="@null" />
 
             </LinearLayout>
