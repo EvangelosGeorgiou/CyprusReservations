@@ -57,7 +57,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        if(savedInstanceState == null ){
 
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.add(R.id.nav_host_fragment,new HomeFragment());
+                fragmentTransaction.commit();
+
+        }
         Intent in = getIntent();
         String LOGIN_STATUS = in.getStringExtra(LoginActivity.LOGIN_STATUS);
 
@@ -91,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(id == R.id.nav_home){
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.nav_host_fragment,new HomeFragment());
+            fragmentTransaction.replace(R.id.nav_host_fragment,new HomeFragment());
             fragmentTransaction.commit();
         }else if(id == R.id.nav_events){
             Intent in = new Intent(this, EventActivity.class);
@@ -102,11 +109,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else if(id == R.id.nav_signin){
             Intent in = new Intent(this,LoginActivity.class);
             startActivity(in);
-        }else{
-            fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.nav_host_fragment,new HomeFragment());
-            fragmentTransaction.commit();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
