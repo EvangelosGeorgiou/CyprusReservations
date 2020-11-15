@@ -1,10 +1,13 @@
 package com.example.cyprusreservations;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cyprusreservations.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -13,6 +16,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -24,10 +28,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 
-    private AppBarConfiguration mAppBarConfiguration;
-    private CustomAdaptor customAdaptor;
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
@@ -58,22 +64,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         if(savedInstanceState == null ){
-
-                fragmentManager = getSupportFragmentManager();
-                fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.add(R.id.nav_host_fragment,new HomeFragment());
-                fragmentTransaction.commit();
-
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.nav_host_fragment,new HomeFragment());
+            fragmentTransaction.commit();
         }
+
         Intent in = getIntent();
         String LOGIN_STATUS = in.getStringExtra(LoginActivity.LOGIN_STATUS);
 
         if(LOGIN_STATUS ==null){
             LOGIN_STATUS = "";
-        }else if (LOGIN_STATUS.equals("true")){
+        } if (LOGIN_STATUS.equals("true")){
             Menu nav_menu = navigationView.getMenu();
             nav_menu.findItem(R.id.nav_signin).setVisible(false);
             nav_menu.findItem(R.id.nav_signout).setVisible(true);
+
+            MenuItem signout = nav_menu.findItem(R.id.nav_signout);
+            signout.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    logout();
+                    return true;
+                }
+            });
         }
     }
 
@@ -83,14 +97,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
-
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-//                || super.onSupportNavigateUp();
-//    }
 
     public boolean onNavigationItemSelected(MenuItem item){
         int id = item.getItemId();
@@ -112,5 +118,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void logout(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Logout");
+        builder.setMessage("Are you sure you want to logout?");
+
+        //creating CANCEL button
+        builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        //creating YES button
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                NavigationView navigationView = findViewById(R.id.nav_view);
+                Menu nav_menu = navigationView.getMenu();
+                nav_menu.findItem(R.id.nav_signin).setVisible(true);
+                nav_menu.findItem(R.id.nav_signout).setVisible(false);
+                Toast.makeText(getApplicationContext(), "You are now logged out", Toast.LENGTH_LONG).show();
+                dialog.dismiss();
+            }
+        });
+        //show dialog
+        builder.show();
     }
 }
