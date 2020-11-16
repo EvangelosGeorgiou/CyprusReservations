@@ -53,7 +53,14 @@ public class PlaceholderFragment extends Fragment {
         {
            // CalendarView calendar = root.findViewById(R.id.calendarView2);
 
-
+            CalendarView calendar = (CalendarView) root.findViewById(R.id.cvReservation);
+            calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+                @Override
+                public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                    String date = String.valueOf(dayOfMonth)+"/"+String.valueOf(month)+"/"+String.valueOf(year);
+                    System.out.println("date = "+date);
+                }
+            });
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
         {

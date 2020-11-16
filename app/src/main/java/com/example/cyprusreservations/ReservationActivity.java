@@ -119,6 +119,8 @@ public class ReservationActivity extends AppCompatActivity {
         }
 
 
+
+
     }
 
 
@@ -212,20 +214,20 @@ public class ReservationActivity extends AppCompatActivity {
         //Date date = new Date(String.valueOf(cv));
         //String currentdate= ss.format(date);
 
-        CalendarView cv = (CalendarView) findViewById(R.id.cvReservation);
+//        CalendarView cv = (CalendarView) findViewById(R.id.cvReservation);
 
 
 
-        cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int day) {
-
-                date = month + " " + day + " "+  year;
-
-            }
-        });
-
-        info.putString("selectedDate",date);
+//        cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+//            @Override
+//            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int day) {
+//
+//                date = month + " " + day + " "+  year;
+//
+//            }
+//        });
+//
+//        info.putString("selectedDate",date);
 
         //SimpleDateFormat sdf = new SimpleDateFormat("MMM d");
         //String currentdate = sdf.format(new Date(cv.getDate()));
