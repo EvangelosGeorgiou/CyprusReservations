@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FragmentTransaction fragmentTransaction;
     private ActionBarDrawerToggle toggle;
     private DrawerLayout drawer;
+    private View headerView;
+    private String file = "CustomerRegistration.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +48,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         drawer = findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -73,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent in = getIntent();
         String LOGIN_STATUS = in.getStringExtra(LoginActivity.LOGIN_STATUS);
 
+
         if(LOGIN_STATUS ==null){
             LOGIN_STATUS = "";
         } if (LOGIN_STATUS.equals("true")){
@@ -88,6 +83,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     return true;
                 }
             });
+
+            //GETTING THE DATA OUT OF THE FILE
+            try {
+                FileInputStream fin = openFileInput(file);
+                DataInputStream din = new DataInputStream(fin);
+                InputStreamReader isr = new InputStreamReader(din);
+                BufferedReader br  = new BufferedReader(isr);
+
+                int i = 0;
+                String lines[] = new String[5];
+                String strLine;
+                while((strLine = br.readLine()) != null){
+                    lines[i] = strLine;
+                    i++;
+                }
+
+                headerView = navigationView.getHeaderView(0);
+                TextView tv = headerView.findViewById(R.id.tvCustomerName);
+                tv.setText("Hello "+lines[0]+" !");
+                Toast.makeText(getApplicationContext(), "Welcome "+lines[0] , Toast.LENGTH_SHORT).show();
+                fin.close();
+
+            }catch (Exception ex){
+                ex.printStackTrace();
+                //Toast.makeText(getApplicationContext(), "something went wrong", Toast.LENGTH_SHORT).show();
+                System.out.println("Error ---> "+ex);
+            }
         }
     }
 
@@ -137,10 +159,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                //setting the navigation drawer menu items
                 NavigationView navigationView = findViewById(R.id.nav_view);
                 Menu nav_menu = navigationView.getMenu();
                 nav_menu.findItem(R.id.nav_signin).setVisible(true);
                 nav_menu.findItem(R.id.nav_signout).setVisible(false);
+
+                //empty the tvCustomerName in the nav_header
+                headerView = navigationView.getHeaderView(0);
+                TextView tv = headerView.findViewById(R.id.tvCustomerName);
+                tv.setText("");
+
+                //logout msg
                 Toast.makeText(getApplicationContext(), "You are now logged out", Toast.LENGTH_LONG).show();
                 dialog.dismiss();
             }
