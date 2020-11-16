@@ -118,17 +118,10 @@ public class ReservationActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
         }
 
-        //BACK ARROW
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
     }
 
-//    @Override   //BACK ARROW
-//    public boolean onSupportNavigateUp() {
-//        onBackPressed();
-//        return true;
-//    }
+
 
     public void goToLocation(View v)
     {
@@ -228,7 +221,7 @@ public class ReservationActivity extends AppCompatActivity {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int day) {
 
                 date = month + " " + day + " "+  year;
-                
+
             }
         });
 
@@ -241,7 +234,7 @@ public class ReservationActivity extends AppCompatActivity {
 
         int selection = group.getCheckedRadioButtonId();
 
-       // long selectedDate = calendarView.getDate();
+        // long selectedDate = calendarView.getDate();
         String selectedGuests = guests.getText().toString();
         String selectedTime = "";
         if(selection == R.id.radioButton15)
