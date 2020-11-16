@@ -7,10 +7,8 @@ import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.cyprusreservations.R;
@@ -61,7 +59,7 @@ public class PlaceholderFragment extends Fragment {
         {
             root = inflater.inflate(R.layout.fragment_tab_activity_events, container, false);
             TextView date_events= root.findViewById(R.id.tvEvents);
-            CalendarView calendar = root.findViewById(R.id.calendarView2);
+            CalendarView calendar = root.findViewById(R.id.cvReservation);
             TextView events = root.findViewById(R.id.tvEvents2);
         }
         return root;

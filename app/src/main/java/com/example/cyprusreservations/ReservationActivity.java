@@ -6,7 +6,6 @@ import android.os.Bundle;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
@@ -14,7 +13,6 @@ import androidx.annotation.RequiresApi;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -30,15 +28,13 @@ import com.example.cyprusreservations.ui.main.SectionsPagerAdapter;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalTime;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 
 public class ReservationActivity extends AppCompatActivity {
 
     StoreInfo storeInfo;
+    String date;
     private static final String TAG ="ReservationActivity";
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -198,6 +194,7 @@ public class ReservationActivity extends AppCompatActivity {
 
         Bundle info = new Bundle();
 
+
         Intent in = getIntent();
         storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
         int logo = storeInfo.getLogo();
@@ -222,22 +219,20 @@ public class ReservationActivity extends AppCompatActivity {
         //Date date = new Date(String.valueOf(cv));
         //String currentdate= ss.format(date);
 
-        CalendarView cv = (CalendarView) findViewById(R.id.calendarView);
+        CalendarView cv = (CalendarView) findViewById(R.id.cvReservation);
 
 
 
         cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int i, int i1, int i2) {
-                int month = i1;
-                int day = i;
-                int year = i2;
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int day) {
 
-                String date = month + "" + day + ""+  year;
-                    //Log.d(TAG,"onSelectedDayChange: mm/dd: "+ date);
-                info.putString("selectedDate",date);
+                date = month + " " + day + " "+  year;
+                
             }
         });
+
+        info.putString("selectedDate",date);
 
         //SimpleDateFormat sdf = new SimpleDateFormat("MMM d");
         //String currentdate = sdf.format(new Date(cv.getDate()));

@@ -36,7 +36,7 @@
                 android:textSize="20sp" />
 
             <CalendarView
-                android:id="@+id/calendarView2"
+                android:id="@+id/cvReservation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
