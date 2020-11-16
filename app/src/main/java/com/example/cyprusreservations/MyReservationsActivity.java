@@ -4,11 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class MyReservationsActivity extends AppCompatActivity {
@@ -23,7 +28,15 @@ public class MyReservationsActivity extends AppCompatActivity {
         Bundle info = in.getExtras();
 
 
+        DateFormat df = new SimpleDateFormat("MMM d");
+        Calendar cal = Calendar.getInstance();
 
+
+        //long eventOn = info.getLong("selectedDate");
+        //CalendarView event = (CalendarView) this.findViewById(R.id.cvReservation);
+        //cal.setTimeInMillis(eventOn);
+        //Date temporary = new Date(eventOn);
+        //df.format(cal.getTime())
         String reservationMessage = info.getString("selectedDate") + ", " + info.getString("selectedTime") +
                 " for " + info.getString("selectedGuests") + " Persons";
 

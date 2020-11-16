@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
+import com.example.cyprusreservations.ui.main.PlaceholderFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
@@ -28,6 +29,7 @@ import com.example.cyprusreservations.ui.main.SectionsPagerAdapter;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -35,6 +37,7 @@ public class ReservationActivity extends AppCompatActivity {
 
     StoreInfo storeInfo;
     String date;
+    long selectedDate;
     private static final String TAG ="ReservationActivity";
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -214,20 +217,32 @@ public class ReservationActivity extends AppCompatActivity {
         //Date date = new Date(String.valueOf(cv));
         //String currentdate= ss.format(date);
 
-//        CalendarView cv = (CalendarView) findViewById(R.id.cvReservation);
+      CalendarView cv = (CalendarView) findViewById(R.id.cvReservation);
 
 
+       cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+           @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int day) {
 
-//        cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-//            @Override
-//            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int day) {
-//
-//                date = month + " " + day + " "+  year;
-//
-//            }
-//        });
-//
-//        info.putString("selectedDate",date);
+               date = month + " " + day + " "+  year;
+
+               //Calendar c = Calendar.getInstance();
+               //c.set(year, month, day);
+
+               //long selectedDate = cv.getDate();
+
+              String curDate = String.valueOf(month);
+
+              // selectedDate = c.getTimeInMillis();
+               //info.putLong("selectedDate",selectedDate);
+
+               date = "123";
+
+
+           }
+       });
+
+        info.putString("selectedDate", date);
 
         //SimpleDateFormat sdf = new SimpleDateFormat("MMM d");
         //String currentdate = sdf.format(new Date(cv.getDate()));
@@ -393,7 +408,7 @@ public class ReservationActivity extends AppCompatActivity {
         info.putString("selectedGuests", selectedGuests);
 
 
-        Toast.makeText(getApplicationContext(), "Your reservation is pending. Please check again for confirmation ",Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "Your reservation is pending. Please check again for confirmation ",Toast.LENGTH_LONG).show();
 
         Intent in1 = new Intent(this, MyReservationsActivity.class);
         in1.putExtras(info);

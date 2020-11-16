@@ -1,5 +1,6 @@
 package com.example.cyprusreservations.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.cyprusreservations.MyReservationsActivity;
 import com.example.cyprusreservations.R;
+import com.example.cyprusreservations.ReservationActivity;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -53,14 +56,21 @@ public class PlaceholderFragment extends Fragment {
         {
            // CalendarView calendar = root.findViewById(R.id.calendarView2);
 
+            /*
             CalendarView calendar = (CalendarView) root.findViewById(R.id.cvReservation);
+            TextView textView = root.findViewById(R.id.tvMyReservations);
+
+
             calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                 @Override
                 public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                     String date = String.valueOf(dayOfMonth)+"/"+String.valueOf(month)+"/"+String.valueOf(year);
-                    System.out.println("date = "+date);
+
+                    textView.setText(date);
                 }
             });
+
+*/
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
         {
@@ -71,4 +81,5 @@ public class PlaceholderFragment extends Fragment {
         }
         return root;
     }
+
 }
