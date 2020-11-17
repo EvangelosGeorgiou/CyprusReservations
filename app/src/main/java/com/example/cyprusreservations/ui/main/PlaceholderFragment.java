@@ -7,11 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.cyprusreservations.MainActivity;
 import com.example.cyprusreservations.MyReservationsActivity;
 import com.example.cyprusreservations.R;
 import com.example.cyprusreservations.ReservationActivity;
@@ -22,6 +24,7 @@ import com.example.cyprusreservations.ReservationActivity;
 public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
+    String date;
 
     private PageViewModel pageViewModel;
 
@@ -54,9 +57,10 @@ public class PlaceholderFragment extends Fragment {
 
         if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)
         {
-           // CalendarView calendar = root.findViewById(R.id.calendarView2);
+            //CalendarView calendar = root.findViewById(R.id.cvReservation);
 
-            /*
+
+
             CalendarView calendar = (CalendarView) root.findViewById(R.id.cvReservation);
             TextView textView = root.findViewById(R.id.tvMyReservations);
 
@@ -64,13 +68,31 @@ public class PlaceholderFragment extends Fragment {
             calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                 @Override
                 public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                    String date = String.valueOf(dayOfMonth)+"/"+String.valueOf(month)+"/"+String.valueOf(year);
+                    date = String.valueOf(dayOfMonth)+"/"+String.valueOf(month)+"/"+String.valueOf(year);
 
-                    textView.setText(date);
+                    Toast.makeText(view.getContext(), date ,Toast.LENGTH_LONG).show();
                 }
             });
 
-*/
+            private void sendData()
+            {
+                //INTENT OBJ
+                Intent i = new Intent(getActivity().getBaseContext(),
+                        MyReservationsActivity.class);
+
+                //PACK DATA
+
+                i.putExtra("selectedDate", date);
+
+
+                //RESET WIDGETS
+
+
+                //START ACTIVITY
+                getActivity().startActivity(i);
+            }
+
+
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
         {

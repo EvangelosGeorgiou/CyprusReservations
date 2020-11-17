@@ -220,29 +220,25 @@ public class ReservationActivity extends AppCompatActivity {
       CalendarView cv = (CalendarView) findViewById(R.id.cvReservation);
 
 
-       cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-           @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int day) {
+       cv.setOnDateChangeListener((view, year, month, day) -> {
 
-               date = month + " " + day + " "+  year;
+           date = month + " " + day + " " +  year;
 
-               //Calendar c = Calendar.getInstance();
-               //c.set(year, month, day);
+           //Calendar c = Calendar.getInstance();
+           //c.set(year, month, day);
 
-               //long selectedDate = cv.getDate();
+          // long selectedDate = cv.getDate();
 
-              String curDate = String.valueOf(month);
+          // selectedDate = c.getTimeInMillis();
+           //info.putLong("selectedDate",selectedDate);
 
-              // selectedDate = c.getTimeInMillis();
-               //info.putLong("selectedDate",selectedDate);
-
-               date = "123";
+           date = "123";
+           long selectedDate = cv.getDate();
 
 
-           }
        });
 
-        info.putString("selectedDate", date);
+        info.putLong("selectedDate", selectedDate);
 
         //SimpleDateFormat sdf = new SimpleDateFormat("MMM d");
         //String currentdate = sdf.format(new Date(cv.getDate()));

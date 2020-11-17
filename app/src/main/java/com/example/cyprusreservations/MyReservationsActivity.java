@@ -32,12 +32,12 @@ public class MyReservationsActivity extends AppCompatActivity {
         Calendar cal = Calendar.getInstance();
 
 
-        //long eventOn = info.getLong("selectedDate");
-        //CalendarView event = (CalendarView) this.findViewById(R.id.cvReservation);
-        //cal.setTimeInMillis(eventOn);
-        //Date temporary = new Date(eventOn);
+        long eventOn = info.getLong("selectedDate");
+        CalendarView event = (CalendarView) this.findViewById(R.id.cvReservation);
+        cal.setTimeInMillis(eventOn);
+        Date temporary = new Date(eventOn);
         //df.format(cal.getTime())
-        String reservationMessage = info.getString("selectedDate") + ", " + info.getString("selectedTime") +
+        String reservationMessage = temporary + ", " + info.getString("selectedTime") +
                 " for " + info.getString("selectedGuests") + " Persons";
 
         ImageView logo = findViewById(R.id.ivLogo);
