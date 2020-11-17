@@ -74,23 +74,7 @@ public class PlaceholderFragment extends Fragment {
                 }
             });
 
-            private void sendData()
-            {
-                //INTENT OBJ
-                Intent i = new Intent(getActivity().getBaseContext(),
-                        MyReservationsActivity.class);
-
-                //PACK DATA
-
-                i.putExtra("selectedDate", date);
-
-
-                //RESET WIDGETS
-
-
-                //START ACTIVITY
-                getActivity().startActivity(i);
-            }
+           
 
 
         }
