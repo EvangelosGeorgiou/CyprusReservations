@@ -54,31 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
-        //GETTING THE DATA OUT OF THE FILE
-        try {
-            FileInputStream fin = openFileInput("CustomerRegistration.txt");
-            DataInputStream din = new DataInputStream(fin);
-            InputStreamReader isr = new InputStreamReader(din);
-            BufferedReader br  = new BufferedReader(isr);
 
-            int i = 0;
-            String lines[] = new String[5];
-            String strLine;
-            while((strLine = br.readLine()) != null){
-                lines[i] = strLine;
-                i++;
-            }
-            usernameEditText.setText(lines[2]);
-            passwordEditText.setText(lines[3]);
-
-            Toast.makeText(getApplicationContext(), "Welcome "+lines[0] , Toast.LENGTH_SHORT).show();
-            fin.close();
-
-        }catch (Exception ex){
-            ex.printStackTrace();
-            //Toast.makeText(getApplicationContext(), "something went wrong", Toast.LENGTH_SHORT).show();
-            System.out.println("Error ---> "+ex);
-        }
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -86,12 +62,12 @@ public class LoginActivity extends AppCompatActivity {
                 if (loginFormState == null) {
                     return;
                 }
-                loginButton.setEnabled(loginFormState.isDataValid());
+                //loginButton.setEnabled(loginFormState.isDataValid());
                 if (loginFormState.getUsernameError() != null) {
                     usernameEditText.setError(getString(loginFormState.getUsernameError()));
                 }
                 if (loginFormState.getPasswordError() != null) {
-                    passwordEditText.setError(getString(loginFormState.getPasswordError()));
+                    //passwordEditText.setError(getString(loginFormState.getPasswordError()));
                 }
             }
         });
@@ -163,9 +139,41 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
-        Intent in = new Intent(this, MainActivity.class);
-        in.putExtra(LOGIN_STATUS,"true");
-        startActivity(in);
+        //GETTING THE DATA OUT OF THE FILE
+        try {
+            FileInputStream fin = openFileInput(file);
+            DataInputStream din = new DataInputStream(fin);
+            InputStreamReader isr = new InputStreamReader(din);
+            BufferedReader br  = new BufferedReader(isr);
+
+            int i = 0;
+            String lines[] = new String[5];
+            String strLine;
+            while((strLine = br.readLine()) != null){
+                lines[i] = strLine;
+                System.out.println("data = "+lines[i]);
+                i++;
+            }
+
+            EditText usernameEditText = findViewById(R.id.username);
+            EditText passwordEditText = findViewById(R.id.password);
+            String email = usernameEditText.getText().toString();
+            String password = passwordEditText.getText().toString();
+            if(email.equals(lines[2]) && password.equals(lines[3])){
+                Intent in = new Intent(this, MainActivity.class);
+                in.putExtra(LOGIN_STATUS,"true");
+                startActivity(in);
+            }else{
+                Toast.makeText(getApplicationContext(), "Email or Password is incorrect! Please try again", Toast.LENGTH_LONG).show();
+            }
+
+            fin.close();
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            System.out.println("Error ---> "+ex);
+        }
+
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {

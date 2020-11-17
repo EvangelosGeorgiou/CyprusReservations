@@ -97,7 +97,6 @@ public class    HomeFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String s) {
-                System.out.println(s);
                 customAdaptor.getFilter().filter(s);
                 return true;
             }
