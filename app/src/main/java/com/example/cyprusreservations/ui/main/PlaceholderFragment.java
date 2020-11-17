@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,7 @@ import com.example.cyprusreservations.MyReservationsActivity;
 import com.example.cyprusreservations.R;
 import com.example.cyprusreservations.ReservationActivity;
 
+
 /**
  * A placeholder fragment containing a simple view.
  */
@@ -27,6 +30,9 @@ public class PlaceholderFragment extends Fragment {
     String date;
 
     private PageViewModel pageViewModel;
+
+
+
 
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
@@ -47,35 +53,34 @@ public class PlaceholderFragment extends Fragment {
         pageViewModel.setIndex(index);
     }
 
+
+
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_reservation, container, false);
-       // TextView tv = root.findViewById(R.id.section_label);
+       //TextView tv = root.findViewById(R.id.section_label);
+
 
 
         if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)
         {
-            //CalendarView calendar = root.findViewById(R.id.cvReservation);
 
+            root = inflater.inflate(R.layout.fragment_reservation, container, false);
 
-
-            CalendarView calendar = (CalendarView) root.findViewById(R.id.cvReservation);
-            TextView textView = root.findViewById(R.id.tvMyReservations);
-
+           EditText editText = root.findViewById(R.id.etDate);
+           CalendarView calendar = (CalendarView) root.findViewById(R.id.cvReservation);
 
             calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                 @Override
                 public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                     date = String.valueOf(dayOfMonth)+"/"+String.valueOf(month)+"/"+String.valueOf(year);
 
-                    Toast.makeText(view.getContext(), date ,Toast.LENGTH_LONG).show();
+
+                   editText.setText(date);
                 }
             });
-
-           
-
 
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)

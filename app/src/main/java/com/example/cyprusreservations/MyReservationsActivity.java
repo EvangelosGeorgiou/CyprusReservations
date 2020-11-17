@@ -9,7 +9,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+
+
+
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -24,20 +28,24 @@ public class MyReservationsActivity extends AppCompatActivity {
         setContentView(R.layout.fragment_myreservations_info);
 
 
+
         Intent in  = getIntent();
         Bundle info = in.getExtras();
 
 
-        DateFormat df = new SimpleDateFormat("MMM d");
-        Calendar cal = Calendar.getInstance();
+       // DateFormat df = new SimpleDateFormat("MMM d");
+       // Calendar cal = Calendar.getInstance();
 
 
-        long eventOn = info.getLong("selectedDate");
-        CalendarView event = (CalendarView) this.findViewById(R.id.cvReservation);
-        cal.setTimeInMillis(eventOn);
-        Date temporary = new Date(eventOn);
+       // long eventOn = info.getLong("selectedDate");
+        //CalendarView event = (CalendarView) this.findViewById(R.id.cvReservation);
+        //cal.setTimeInMillis(eventOn);
+       //Date temporary = new Date(eventOn);
         //df.format(cal.getTime())
-        String reservationMessage = temporary + ", " + info.getString("selectedTime") +
+
+       // info.getString("selectedDate")
+
+        String reservationMessage = info.getString("selectedDate")  + ", " + info.getString("selectedTime") +
                 " for " + info.getString("selectedGuests") + " Persons";
 
         ImageView logo = findViewById(R.id.ivLogo);
@@ -51,4 +59,6 @@ public class MyReservationsActivity extends AppCompatActivity {
         reservation.setText(reservationMessage);
 
     }
+
+
 }

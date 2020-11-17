@@ -438,6 +438,16 @@
                 android:textColor="#0E0E0E"
                 app:backgroundTint="#817D7D" />
 
+            <EditText
+                android:id="@+id/etDate"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:textColor="#FFFFFF" />
+
         </LinearLayout>
     </ScrollView>
 
