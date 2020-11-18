@@ -88,7 +88,18 @@ public class PlaceholderFragment extends Fragment {
             root = inflater.inflate(R.layout.fragment_tab_activity_events, container, false);
             TextView date_events= root.findViewById(R.id.tvEvents);
             CalendarView calendar = root.findViewById(R.id.cvReservation);
-            TextView events = root.findViewById(R.id.tvEvents2);
+
+//            TextView football = root.findViewById(R.id.football);
+//            //To take the title of the Company
+//            TextView title_event = root.findViewById(R.id.idTitle);
+//            String title = title_event.toString();
+//
+//            if (title == "Pier One"){
+//                football.setText("eventsFootball[0]");
+//            }
+//
+//            TextView music = root.findViewById(R.id.music);
+//            music.setText("TEST");
         }
         return root;
     }

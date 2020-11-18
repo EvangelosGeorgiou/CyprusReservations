@@ -1,6 +1,8 @@
 package com.example.cyprusreservations;
 
+import android.app.usage.UsageEvents;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -26,6 +28,8 @@ import android.widget.Toast;
 
 import com.example.cyprusreservations.ui.main.SectionsPagerAdapter;
 
+
+import org.w3c.dom.Text;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -53,11 +57,10 @@ public class ReservationActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
 
 
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Toast.makeText(getApplicationContext(), "Please fill all the fields and then press book now", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Please fill all the fields and then press book now", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -71,14 +74,12 @@ public class ReservationActivity extends AppCompatActivity {
         String openHour = storeInfo.getOpenHour();
         String closeHour = storeInfo.getCloseHour();
 
-
-        TextView tvTitle =findViewById(R.id.tvTitle);
-        TextView desc =findViewById(R.id.tvDescription);
+        TextView tvTitle = findViewById(R.id.tvTitle);
+        TextView desc = findViewById(R.id.tvDescription);
         RatingBar rating = findViewById(R.id.rbRating);
         ImageView l = findViewById(R.id.ivLogo);
         Button button = findViewById(R.id.locationButton);
         Button button1 = findViewById(R.id.button4);
-
 
         l.setImageResource(logo);
         rating.setRating(rate);
@@ -86,7 +87,9 @@ public class ReservationActivity extends AppCompatActivity {
         desc.setText(description);
         button.setText(address);
 
-
+//    // To save the title in an invinsible text
+//        TextView title_event =findViewById(R.id.idTitle);
+//        title_event.setText(title);
 
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         String currentTime = sdf.format(new Date());
@@ -94,7 +97,7 @@ public class ReservationActivity extends AppCompatActivity {
         int beforeTime = -1;
         int afterTime = 1;
         int equalTime = 0;
-        try{
+        try {
 
             Date time1 = sdf.parse(currentTime);
             Date time2 = sdf.parse(closeHour);
@@ -107,27 +110,86 @@ public class ReservationActivity extends AppCompatActivity {
             // Outputs 0 as the dates are now equal
             //date1.compareTo(date2);
 
-            if ( beforeTime == time1.compareTo(time2) && afterTime == time1.compareTo(time3) )
-            {
+            if (beforeTime == time1.compareTo(time2) && afterTime == time1.compareTo(time3)) {
                 button1.setText("We are Open Now");
-            }
-            else
-            {
+            } else {
                 button1.setText("We are Close Now");
             }
 
 
-        } catch (ParseException e){
+        } catch (ParseException e) {
             Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
         }
 
+        // CREATING TABLE FOR FOOTBALL EVENTS
+        String[] eventsFootball = new String[5];
 
+        eventsFootball[0] = "OMONOIA vs APOEL";
+        eventsFootball[1] = "CHELSE VS LIVERPOOL";
+        eventsFootball[2] = "BARCELONA VS REAL JUVENTUS";
+        eventsFootball[3] = "APOLLON VS AEL";
+        eventsFootball[4] = "AEK VS DOKSA";
 
+        // CREATING TABLE FOR MUSIC EVENTS
+        String[] eventsMusic = new String[3];
 
+        eventsMusic[0] = "LIVE";
+        eventsMusic[1] = "KARAOKE";
+        eventsMusic[2] = "DJ";
+
+        //CREATING TABLE FOR DATE
+        String[] date =new String[5];
+
+        date[0] = "5/12/20";
+        date[1] = "7/12/20";
+        date[2] = "15/12/20";
+        date[3] = "20/12/20";
+        date[4] = "27/12/20";
+
+        //CREATING TIME TABLE
+        String[] time = new String[3];
+
+        time[0] = "20:00";
+        time[1] = "21:00";
+        time[2] = "22:00";
+
+        //Button for viewing the events
+//        Button submit = findViewById(R.id.submit);
+//        submit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                TextView d1 = findViewById(R.id.idD1);
+//                TextView d2 = findViewById(R.id.idD2);
+//                TextView d3 = findViewById(R.id.idD3);
+//
+//                TextView t1 = findViewById(R.id.idT1);
+//                TextView t2 = findViewById(R.id.idT2);
+//                TextView t3 = findViewById(R.id.idT3);
+//
+//                TextView ev1 = findViewById(R.id.idEv1);
+//                TextView ev2 = findViewById(R.id.idEv2);
+//                TextView ev3 = findViewById(R.id.idEv3);
+//                if (title.equals("Pier One"))
+//                {
+//                    d1.setText(date[0]);
+//                    t1.setText(time[0]);
+//                    ev1.setText(eventsMusic[1]);
+//                } else if (title.equals("Αγράμπελη")) {
+//
+//                } else if (title.equals("Η Γωνιά")) {
+//
+//                } else if (title.equals("Finders")) {
+//
+//                } else if (title.equals("Baraki Live")) {
+//
+//                } else if (title.equals("Confuzio Cafe")) {
+//
+//                }
+//
+//
+//            }
+//        });
     }
-
-
-
     public void goToLocation(View v)
     {
         Bundle info = new Bundle();
@@ -211,10 +273,6 @@ public class ReservationActivity extends AppCompatActivity {
         RadioGroup group = findViewById(R.id.rbGroup);
 
         String date = etDate.getText().toString();
-
-
-
-
 
         info.putString("selectedDate",date);
 
