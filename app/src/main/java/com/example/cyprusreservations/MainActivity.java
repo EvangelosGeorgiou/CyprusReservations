@@ -137,6 +137,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else if(id == R.id.nav_signin){
             Intent in = new Intent(this,LoginActivity.class);
             startActivity(in);
+        }else if(id == R.id.nav_rate){
+            Intent in = new Intent(this,RateUsActivity.class);
+            startActivity(in);
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;

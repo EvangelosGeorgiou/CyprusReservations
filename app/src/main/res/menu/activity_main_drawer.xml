@@ -27,5 +27,15 @@
             android:icon="@drawable/ic_login"
             android:title="Sign out"
             android:visible="false"/>
+
+        <item android:title="Rate us">
+            <menu>
+                <item
+                    android:id="@+id/nav_rate"
+                    android:icon="@drawable/ic_baseline_star_outline_24"
+                    android:title="Rate us" />
+            </menu>
+        </item>
     </group>
+
 </menu>
