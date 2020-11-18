@@ -22,30 +22,20 @@ import java.util.List;
 
 public class MyReservationsActivity extends AppCompatActivity {
 
+    Date selectedDate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_myreservations_info);
 
-
-
         Intent in  = getIntent();
         Bundle info = in.getExtras();
-
 
        // DateFormat df = new SimpleDateFormat("MMM d");
        // Calendar cal = Calendar.getInstance();
 
 
-       // long eventOn = info.getLong("selectedDate");
-        //CalendarView event = (CalendarView) this.findViewById(R.id.cvReservation);
-        //cal.setTimeInMillis(eventOn);
-       //Date temporary = new Date(eventOn);
-        //df.format(cal.getTime())
-
-       // info.getString("selectedDate")
-
-        String reservationMessage = info.getString("selectedDate")  + ", " + info.getString("selectedTime") +
+        String reservationMessage = info.getString("selectedDate") + ", " + info.getString("selectedTime") +
                 " for " + info.getString("selectedGuests") + " Persons";
 
         ImageView logo = findViewById(R.id.ivLogo);

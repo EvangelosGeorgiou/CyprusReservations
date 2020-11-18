@@ -211,7 +211,13 @@ public class ReservationActivity extends AppCompatActivity {
         RadioGroup group = findViewById(R.id.rbGroup);
 
         String date = etDate.getText().toString();
+
+
+
+
+
         info.putString("selectedDate",date);
+
 
         //SimpleDateFormat sdf = new SimpleDateFormat("MMM d");
         //String currentdate = sdf.format(new Date(cv.getDate()));
@@ -221,15 +227,8 @@ public class ReservationActivity extends AppCompatActivity {
         // long selectedDate = calendarView.getDate();
         String selectedGuests = guests.getText().toString();
         String selectedTime = "";
-        if(selection == R.id.radioButton15)
-        {
-            selectedTime = "08:00";
-        }
-        else if(selection == R.id.radioButton14)
-        {
-            selectedTime = "08:30";
-        }
-        else if(selection == R.id.radioButton13)
+
+        if(selection == R.id.radioButton13)
         {
             selectedTime = "09:00";
         }
@@ -345,30 +344,7 @@ public class ReservationActivity extends AppCompatActivity {
         {
             selectedTime = "23:00";
         }
-        else if(selection == R.id.radioButton36)
-        {
-            selectedTime = "23:30";
-        }
-        else if(selection == R.id.radioButton37)
-        {
-            selectedTime = "00:00";
-        }
-        else if(selection == R.id.radioButton38)
-        {
-            selectedTime = "00:30";
-        }
-        else if(selection == R.id.radioButton39)
-        {
-            selectedTime = "01:00";
-        }
-        else if(selection == R.id.radioButton40)
-        {
-            selectedTime = "01:30";
-        }
-        else if(selection == R.id.radioButton41)
-        {
-            selectedTime = "02:00";
-        }
+
 
         info.putString("selectedTime", selectedTime);
 
