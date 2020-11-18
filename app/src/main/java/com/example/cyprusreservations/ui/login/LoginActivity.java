@@ -165,6 +165,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(in);
             }else{
                 Toast.makeText(getApplicationContext(), "Email or Password is incorrect! Please try again", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(this,LoginActivity.class));
             }
 
             fin.close();
