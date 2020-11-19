@@ -156,8 +156,8 @@ public class ReservationActivity extends AppCompatActivity {
         time[0] = "20:00";
         time[1] = "21:00";
         time[2] = "22:00";
-
-        //To view the titles of the table
+        
+        //To view the titles of the table 
         TextView days = findViewById(R.id.idDate);
         days.setVisibility(View.VISIBLE);
         TextView hour = findViewById(R.id.idTime);
