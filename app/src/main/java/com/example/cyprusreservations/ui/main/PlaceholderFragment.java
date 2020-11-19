@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,8 @@ import com.example.cyprusreservations.MainActivity;
 import com.example.cyprusreservations.MyReservationsActivity;
 import com.example.cyprusreservations.R;
 import com.example.cyprusreservations.ReservationActivity;
+
+import org.w3c.dom.Text;
 
 
 /**
@@ -86,20 +90,8 @@ public class PlaceholderFragment extends Fragment {
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
         {
             root = inflater.inflate(R.layout.fragment_tab_activity_events, container, false);
-            TextView date_events= root.findViewById(R.id.tvEvents);
-            CalendarView calendar = root.findViewById(R.id.cvReservation);
 
-//            TextView football = root.findViewById(R.id.football);
-//            //To take the title of the Company
-//            TextView title_event = root.findViewById(R.id.idTitle);
-//            String title = title_event.toString();
-//
-//            if (title == "Pier One"){
-//                football.setText("eventsFootball[0]");
-//            }
-//
-//            TextView music = root.findViewById(R.id.music);
-//            music.setText("TEST");
+
         }
         return root;
     }

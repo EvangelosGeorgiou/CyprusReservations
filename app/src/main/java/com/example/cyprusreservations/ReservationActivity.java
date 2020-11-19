@@ -87,9 +87,6 @@ public class ReservationActivity extends AppCompatActivity {
         desc.setText(description);
         button.setText(address);
 
-//    // To save the title in an invinsible text
-//        TextView title_event =findViewById(R.id.idTitle);
-//        title_event.setText(title);
 
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         String currentTime = sdf.format(new Date());
@@ -120,13 +117,20 @@ public class ReservationActivity extends AppCompatActivity {
         } catch (ParseException e) {
             Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void seeEvents(View v){
+        
+        Intent in = getIntent();
+        storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
+        String title = storeInfo.getTitle();
 
         // CREATING TABLE FOR FOOTBALL EVENTS
         String[] eventsFootball = new String[5];
 
         eventsFootball[0] = "OMONOIA vs APOEL";
         eventsFootball[1] = "CHELSE VS LIVERPOOL";
-        eventsFootball[2] = "BARCELONA VS REAL JUVENTUS";
+        eventsFootball[2] = "BARCELONA VS JUVENTUS";
         eventsFootball[3] = "APOLLON VS AEL";
         eventsFootball[4] = "AEK VS DOKSA";
 
@@ -153,42 +157,134 @@ public class ReservationActivity extends AppCompatActivity {
         time[1] = "21:00";
         time[2] = "22:00";
 
-        //Button for viewing the events
-//        Button submit = findViewById(R.id.submit);
-//        submit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                TextView d1 = findViewById(R.id.idD1);
-//                TextView d2 = findViewById(R.id.idD2);
-//                TextView d3 = findViewById(R.id.idD3);
-//
-//                TextView t1 = findViewById(R.id.idT1);
-//                TextView t2 = findViewById(R.id.idT2);
-//                TextView t3 = findViewById(R.id.idT3);
-//
-//                TextView ev1 = findViewById(R.id.idEv1);
-//                TextView ev2 = findViewById(R.id.idEv2);
-//                TextView ev3 = findViewById(R.id.idEv3);
-//                if (title.equals("Pier One"))
-//                {
-//                    d1.setText(date[0]);
-//                    t1.setText(time[0]);
-//                    ev1.setText(eventsMusic[1]);
-//                } else if (title.equals("Αγράμπελη")) {
-//
-//                } else if (title.equals("Η Γωνιά")) {
-//
-//                } else if (title.equals("Finders")) {
-//
-//                } else if (title.equals("Baraki Live")) {
-//
-//                } else if (title.equals("Confuzio Cafe")) {
-//
-//                }
-//
-//
-//            }
-//        });
+        //To view the titles of the table
+        TextView days = findViewById(R.id.idDate);
+        days.setVisibility(View.VISIBLE);
+        TextView hour = findViewById(R.id.idTime);
+        hour.setVisibility(View.VISIBLE);
+        TextView event = findViewById(R.id.idEvent);
+        event.setVisibility(View.VISIBLE);
+
+        //Find the cells of the table
+        TextView d1 = findViewById(R.id.idD1);
+        TextView d2 = findViewById(R.id.idD2);
+        TextView d3 = findViewById(R.id.idD3);
+        TextView d4 = findViewById(R.id.idD4);
+        TextView d5 = findViewById(R.id.idD5);
+
+        TextView t1 = findViewById(R.id.idT1);
+        TextView t2 = findViewById(R.id.idT2);
+        TextView t3 = findViewById(R.id.idT3);
+        TextView t4 = findViewById(R.id.idT4);
+        TextView t5 = findViewById(R.id.idT5);
+
+        TextView ev1 = findViewById(R.id.idEv1);
+        TextView ev2 = findViewById(R.id.idEv2);
+        TextView ev3 = findViewById(R.id.idEv3);
+        TextView ev4 = findViewById(R.id.idEv4);
+        TextView ev5 = findViewById(R.id.idEv5);
+
+        //Changing the values in the table
+        if (title.equals("Pier One"))
+        {
+            d1.setText(date[0]);
+            t1.setText(time[0]);
+            ev1.setText(eventsMusic[1]);
+
+            d2.setText(date[1]);
+            t2.setText(time[0]);
+            ev2.setText(eventsMusic[0]);
+
+            d3.setText(date[2]);
+            t3.setText(time[1]);
+            ev3.setText(eventsMusic[2]);
+
+            d4.setText(date[3]);
+            t4.setText(time[0]);
+            ev4.setText(eventsMusic[1]);
+
+            d5.setText(date[4]);
+            t5.setText(time[1]);
+            ev5.setText(eventsMusic[2]);
+        }
+        else if (title.equals("Αγράμπελη")) {
+            d1.setText(date[0]);
+            t1.setText(time[0]);
+            ev1.setText(eventsMusic[1]);
+
+            d2.setText(date[1]);
+            t2.setText(time[0]);
+            ev2.setText(eventsMusic[0]);
+
+            d3.setText(date[2]);
+            t3.setText(time[1]);
+            ev3.setText(eventsMusic[2]);
+        }
+        else if (title.equals("Η Γωνιά")) {
+
+            d1.setText(date[3]);
+            t1.setText(time[0]);
+            ev1.setText(eventsMusic[1]);
+
+            d2.setText(date[4]);
+            t2.setText(time[1]);
+            ev2.setText(eventsMusic[2]);
+        }
+        else if (title.equals("Finders")) {
+            d1.setText(date[0]);
+            t1.setText(time[0]);
+            ev1.setText(eventsFootball[4]);
+
+            d2.setText(date[0]);
+            t2.setText(time[2]);
+            ev2.setText(eventsMusic[1]);
+
+            d3.setText(date[2]);
+            t3.setText(time[0]);
+            ev3.setText(eventsFootball[3]);
+
+            d4.setText(date[4]);
+            t4.setText(time[0]);
+            ev4.setText(eventsFootball[0]);
+        }
+        else if (title.equals("Baraki Live")) {
+            d1.setText(date[0]);
+            t1.setText(time[0]);
+            ev1.setText(eventsFootball[4]);
+
+            d2.setText(date[1]);
+            t2.setText(time[1]);
+            ev2.setText(eventsMusic[0]);
+
+            d3.setText(date[2]);
+            t3.setText(time[0]);
+            ev3.setText(eventsFootball[3]);
+
+            d4.setText(date[4]);
+            t4.setText(time[1]);
+            ev4.setText(eventsMusic[0]);
+        }
+        else if (title.equals("Confuzio Cafe")) {
+            d1.setText(date[0]);
+            t1.setText(time[0]);
+            ev1.setText(eventsFootball[4]);
+
+            d2.setText(date[1]);
+            t2.setText(time[2]);
+            ev2.setText(eventsFootball[1]);
+
+            d3.setText(date[2]);
+            t3.setText(time[0]);
+            ev3.setText(eventsFootball[3]);
+
+            d4.setText(date[4]);
+            t4.setText(time[0]);
+            ev4.setText(eventsFootball[0]);
+
+            d5.setText(date[4]);
+            t5.setText(time[2]);
+            ev5.setText(eventsFootball[2]);
+        }
     }
     public void goToLocation(View v)
     {
