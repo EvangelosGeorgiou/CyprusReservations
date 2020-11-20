@@ -20,6 +20,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -175,6 +176,41 @@ public class LoginActivity extends AppCompatActivity {
             System.out.println("Error ---> "+ex);
         }
 
+    }
+
+    public void addCredentials(View v){
+        EditText usernameEditText = findViewById(R.id.username);
+        EditText passwordEditText = findViewById(R.id.password);
+        CheckBox cb = findViewById(R.id.cbCredentials);
+        if(cb.isChecked()){
+            try {
+                FileInputStream fin = openFileInput(file);
+                DataInputStream din = new DataInputStream(fin);
+                InputStreamReader isr = new InputStreamReader(din);
+                BufferedReader br  = new BufferedReader(isr);
+
+                int i = 0;
+                String lines[] = new String[5];
+                String strLine;
+                while((strLine = br.readLine()) != null){
+                    lines[i] = strLine;
+                    System.out.println("data = "+lines[i]);
+                    i++;
+                }
+
+                usernameEditText.setText(lines[2]);
+                passwordEditText.setText(lines[3]);
+
+                fin.close();
+
+            }catch (Exception ex){
+                ex.printStackTrace();
+                System.out.println("Error ---> "+ex);
+            }
+        }else{
+            usernameEditText.setText("");
+            passwordEditText.setText("");
+        }
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {

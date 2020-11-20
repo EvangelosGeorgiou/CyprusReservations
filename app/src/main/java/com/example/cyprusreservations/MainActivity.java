@@ -1,5 +1,6 @@
 package com.example.cyprusreservations;
 
+import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -7,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +22,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.NotificationCompat;
@@ -39,6 +42,7 @@ import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -119,7 +123,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 System.out.println("Error ---> "+ex);
             }
         }
-        notification();
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            notification();
+        }
     }
 
     @Override
@@ -191,36 +198,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         builder.show();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void notification(){
-        NotificationChannel channel = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            channel = new NotificationChannel(
-                    "1",
-                    "channel1",
-                    NotificationManager.IMPORTANCE_DEFAULT);
-
-            //create the notification manager
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-            //initialize pending intent
-            PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this,1,intent,PendingIntent.FLAG_ONE_SHOT);
-
-            //ringtone uri
-            Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            //create the notification
-            NotificationCompat.Builder notification = new NotificationCompat.Builder(MainActivity.this, "1")
-                    .setSmallIcon(android.R.drawable.btn_star)
-                    .setContentTitle("AEK VS DOKSA")
-                    .setContentText("New event match at Confuzio Cafe")
-                    .setSmallIcon(R.id.login)
-                    .setSound(uri)
-                    .addAction(R.drawable.ic_launcher_foreground, "Make Reservation",pendingIntent)
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
-            NotificationManagerCompat notifyAdmin = NotificationManagerCompat.from(MainActivity.this);
-            notifyAdmin.notify(1, notification.build());
-        }
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.SECOND, 60);
+        Intent intent = new Intent(this, NotificationReceiver.class);
+        intent.setAction("android.intent.action.DISPLAY_NOTIFICATION");
+        PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, intent, PendingIntent.FLAG_ONE_SHOT);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), broadcast);
     }
 }
