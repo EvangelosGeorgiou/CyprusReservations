@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
-import com.example.cyprusreservations.ui.main.PlaceholderFragment;
+
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
@@ -15,33 +15,28 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.cyprusreservations.ui.main.SectionsPagerAdapter;
-
-
 import org.w3c.dom.Text;
-
+import java.io.FileOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 
 public class ReservationActivity extends AppCompatActivity {
 
     StoreInfo storeInfo;
+    private String file = "reservations.txt";
 
-    long selectedDate;
+
     private static final String TAG ="ReservationActivity";
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -379,28 +374,17 @@ public class ReservationActivity extends AppCompatActivity {
         String title = storeInfo.getTitle();
         String description = storeInfo.getDescription();
 
-        info.putInt("logo", logo);
-        info.putString("title",title);
-        info.putString("description", description);
-
-
 
 
         EditText etDate = findViewById(R.id.etDate);
         EditText guests = findViewById(R.id.etGuests);
         RadioGroup group = findViewById(R.id.rbGroup);
-
         String date = etDate.getText().toString();
 
-        info.putString("selectedDate",date);
-
-
-        //SimpleDateFormat sdf = new SimpleDateFormat("MMM d");
-        //String currentdate = sdf.format(new Date(cv.getDate()));
 
         int selection = group.getCheckedRadioButtonId();
 
-        // long selectedDate = calendarView.getDate();
+
         String selectedGuests = guests.getText().toString();
         String selectedTime = "";
 
@@ -520,17 +504,45 @@ public class ReservationActivity extends AppCompatActivity {
         {
             selectedTime = "23:00";
         }
-
-
+/*
+        info.putInt("logo", logo);
+        info.putString("title",title);
+        info.putString("description", description);
         info.putString("selectedTime", selectedTime);
-
+        info.putString("selectedDate",date);
         info.putString("selectedGuests", selectedGuests);
+*/
+        String title1 = title + "\n";
+        String desc = description + "\n";
+        String date1 = date + "\n";
+        String time = selectedTime + "\n";
+        String guests1 = selectedGuests + "\n";
+        String logo1 = String.valueOf(logo);
+
+        try {
+            FileOutputStream fout = openFileOutput(file,0);
 
 
-        Toast.makeText(getApplicationContext(), "Your reservation is pending. Please check again for confirmation ",Toast.LENGTH_LONG).show();
+            fout.write(title1.getBytes());
+            fout.write(desc.getBytes());
+            fout.write(date1.getBytes());
+            fout.write(time.getBytes());
+            fout.write(guests1.getBytes());
+            fout.write(logo1.getBytes());
 
-        Intent in1 = new Intent(this, MyReservationsActivity.class);
-        in1.putExtras(info);
+            fout.close();
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+        }
+
+        Toast.makeText(getApplicationContext(), "Your reservation is pending. Please check the progress from the MyReservations page!",Toast.LENGTH_LONG).show();
+
+        Intent in1 = new Intent(this, MainActivity.class);
+        //in1.putExtras(info);
         startActivity(in1);
     }
 

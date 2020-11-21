@@ -35,20 +35,30 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
         Bundle info = in.getExtras();
         TextView text = findViewById(R.id.textAddress);
         text.setText(info.getString("address"));
+
+        String closeHour = info.getString("closeHour");
+        if(closeHour.equals("26:00"))
+        {
+            closeHour = "02:00";
+        }
+        else if(closeHour.equals("26:30"))
+        {
+            closeHour ="02:30";
+        }
         TextView text1 = findViewById(R.id.tvMonday);
-        text1.setText(info.getString("openHour") +" - "+ info.getString("closeHour") );
+        text1.setText(info.getString("openHour") +" - "+ closeHour);
         TextView text2 = findViewById(R.id.tvTuesday);
-        text2.setText(info.getString("openHour") +" - "+ info.getString("closeHour") );
+        text2.setText(info.getString("openHour") +" - "+ closeHour );
         TextView text3 = findViewById(R.id.tvWednesday);
-        text3.setText(info.getString("openHour") +" - "+ info.getString("closeHour") );
+        text3.setText(info.getString("openHour") +" - "+ closeHour );
         TextView text4 = findViewById(R.id.tvThursday);
-        text4.setText(info.getString("openHour") +" - "+ info.getString("closeHour") );
+        text4.setText(info.getString("openHour") +" - "+ closeHour );
         TextView text5 = findViewById(R.id.tvFriday);
-        text5.setText(info.getString("openHour") +" - "+ info.getString("closeHour") );
+        text5.setText(info.getString("openHour") +" - "+ closeHour );
         TextView text6 = findViewById(R.id.tvSaturday);
-        text6.setText(info.getString("openHour") +" - "+ info.getString("closeHour") );
+        text6.setText(info.getString("openHour") +" - "+ closeHour );
         TextView text7 = findViewById(R.id.tvSunday);
-        text7.setText(info.getString("openHour") +" - "+ info.getString("closeHour") );
+        text7.setText(info.getString("openHour") +" - "+ closeHour);
 
 
     }
