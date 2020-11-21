@@ -187,100 +187,122 @@ public class ReservationActivity extends AppCompatActivity {
         //Changing the values in the table
         if (title.equals("Pier One"))
         {
+            //EVENT 1
             d1.setText(date[0]);
             t1.setText(time[0]);
             ev1.setText(eventsMusic[1]);
 
+            //EVENT2
             d2.setText(date[1]);
             t2.setText(time[0]);
             ev2.setText(eventsMusic[0]);
 
+            //EVENT 3
             d3.setText(date[2]);
             t3.setText(time[1]);
             ev3.setText(eventsMusic[2]);
 
+            //EVENT 4
             d4.setText(date[3]);
             t4.setText(time[0]);
             ev4.setText(eventsMusic[1]);
 
+            //EVENT5 5
             d5.setText(date[4]);
             t5.setText(time[1]);
             ev5.setText(eventsMusic[2]);
         }
         else if (title.equals("Αγράμπελη")) {
+            //EVENT 1
             d1.setText(date[0]);
             t1.setText(time[0]);
             ev1.setText(eventsMusic[1]);
 
+            //EVENT2
             d2.setText(date[1]);
             t2.setText(time[0]);
             ev2.setText(eventsMusic[0]);
 
+            //EVENT 3
             d3.setText(date[2]);
             t3.setText(time[1]);
             ev3.setText(eventsMusic[2]);
         }
         else if (title.equals("Η Γωνιά")) {
-
+            //EVENT 1
             d1.setText(date[3]);
             t1.setText(time[0]);
             ev1.setText(eventsMusic[1]);
 
+            //EVENT2
             d2.setText(date[4]);
             t2.setText(time[1]);
             ev2.setText(eventsMusic[2]);
         }
         else if (title.equals("Finders")) {
+            //EVENT 1
             d1.setText(date[0]);
             t1.setText(time[0]);
             ev1.setText(eventsFootball[4]);
 
+            //EVENT2
             d2.setText(date[0]);
             t2.setText(time[2]);
             ev2.setText(eventsMusic[1]);
 
+            //EVENT 3
             d3.setText(date[2]);
             t3.setText(time[0]);
             ev3.setText(eventsFootball[3]);
 
+            //EVENT 4
             d4.setText(date[4]);
             t4.setText(time[0]);
             ev4.setText(eventsFootball[0]);
         }
         else if (title.equals("Baraki Live")) {
+            //EVENT 1
             d1.setText(date[0]);
             t1.setText(time[0]);
             ev1.setText(eventsFootball[4]);
 
+            //EVENT2
             d2.setText(date[1]);
             t2.setText(time[1]);
             ev2.setText(eventsMusic[0]);
 
+            //EVENT 3
             d3.setText(date[2]);
             t3.setText(time[0]);
             ev3.setText(eventsFootball[3]);
 
+            //EVENT 4
             d4.setText(date[4]);
             t4.setText(time[1]);
             ev4.setText(eventsMusic[0]);
         }
         else if (title.equals("Confuzio Cafe")) {
+            //EVENT 1
             d1.setText(date[0]);
             t1.setText(time[0]);
             ev1.setText(eventsFootball[4]);
 
+            //EVENT2
             d2.setText(date[1]);
             t2.setText(time[2]);
             ev2.setText(eventsFootball[1]);
 
+            //EVENT 3
             d3.setText(date[2]);
             t3.setText(time[0]);
             ev3.setText(eventsFootball[3]);
 
+            //EVENT 4
             d4.setText(date[4]);
             t4.setText(time[0]);
             ev4.setText(eventsFootball[0]);
 
+            //EVENT 5
             d5.setText(date[4]);
             t5.setText(time[2]);
             ev5.setText(eventsFootball[2]);
