@@ -20,8 +20,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class LocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    StoreInfo storeInfo;
+
     private GoogleMap mMap;
+
+
 
 
     @Override
@@ -130,10 +132,10 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
     public void goToFbPage(View v)
     {
         Intent in = getIntent();
-        storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
+        Bundle info = in.getExtras();
 
         String url = "";
-        String title = storeInfo.getTitle();
+        String title = info.getString("title");
 
         if (title.equals("Pier One"))
         {

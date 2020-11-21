@@ -315,6 +315,7 @@ public class ReservationActivity extends AppCompatActivity {
         String closeHour = storeInfo.getCloseHour();
         LatLng coords;
         info.putString("address" , address);
+        info.putString("title",title);
 
         if (title.equals("Pier One"))
         {
