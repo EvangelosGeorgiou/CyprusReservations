@@ -6,6 +6,8 @@ import androidx.fragment.app.FragmentActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.View;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 
@@ -18,6 +20,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class LocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    StoreInfo storeInfo;
     private GoogleMap mMap;
 
 
@@ -122,5 +125,44 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
         }
 
 
+    }
+
+    public void goToFbPage(View v)
+    {
+        Intent in = getIntent();
+        storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
+
+        String url = "";
+        String title = storeInfo.getTitle();
+
+        if (title.equals("Pier One"))
+        {
+           url ="https://www.facebook.com/pages/Pier-One/992759600793730";
+        }
+        else if(title.equals("Αγράμπελη"))
+        {
+            url ="https://www.facebook.com/agrampeli.ouzeri/";
+        }
+        else if(title.equals("Η Γωνιά"))
+        {
+            url ="https://www.facebook.com/igoniamas/";
+        }
+        else if(title.equals("Finders"))
+        {
+            url ="https://www.facebook.com/findersbar/";
+        }
+        else if(title.equals("Baraki Live"))
+        {
+            url ="https://www.facebook.com/ToBARakiLive/";
+        }
+        else if(title.equals("Confuzio Cafe"))
+        {
+            url ="https://www.facebook.com/confuziocafe/";
+        }
+
+
+        setContentView(R.layout.fragment_webview);
+        WebView webView = findViewById(R.id.webViewPage);
+        webView.loadUrl(url);
     }
 }

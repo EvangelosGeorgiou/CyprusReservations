@@ -258,6 +258,21 @@
                         android:textSize="18sp" />
                 </LinearLayout>
 
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40sp"
+                    android:onClick="goToFbPage"
+                    android:text="click here to visit our page"
+                    android:textColor="@android:color/holo_blue_dark"
+                    app:backgroundTint="@color/white"
+                    app:icon="@drawable/facebook"
+                    app:iconGravity="textStart"
+                    app:iconSize="30dp"
+                    app:iconTint="@null" />
+
 
             </LinearLayout>
         </ScrollView>
