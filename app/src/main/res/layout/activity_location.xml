@@ -259,7 +259,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/buttoaefn"
+                    android:id="@+id/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -268,8 +268,8 @@
                     android:text="click here to visit our page"
                     android:textColor="@android:color/holo_blue_dark"
                     android:textSize="20sp"
+                    android:drawableLeft="@drawable/facebook3"
                     app:backgroundTint="#000000"
-                    app:icon="@drawable/facebook3"
                     app:iconGravity="textStart"
                     app:iconSize="80dp"
                     app:iconTint="@null" />

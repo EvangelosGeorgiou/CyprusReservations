@@ -40,46 +40,50 @@ public class MyReservationsActivity extends AppCompatActivity {
         TextView desc = findViewById(R.id.tvDescription);
         TextView reservation = findViewById(R.id.tvMyReservations);
 
+        try {
+            FileInputStream fin = openFileInput(file);
+            DataInputStream din = new DataInputStream(fin);
+            InputStreamReader isr = new InputStreamReader(din);
+            BufferedReader br = new BufferedReader(isr);
 
 
+            int i=0;
+            String Lines[] = new String[6];
+            String strLine;
 
 
-            try {
-                FileInputStream fin = openFileInput(file);
-                DataInputStream din = new DataInputStream(fin);
-                InputStreamReader isr = new InputStreamReader(din);
-                BufferedReader br = new BufferedReader(isr);
-
-
-                int i=0;
-                String Lines[] = new String[6];
-                String strLine;
-
-
-                while((strLine = br.readLine()) != null)
-                {
-                    Lines[i] = strLine;
-                    i++;
-                }
-
-                int value = Integer.parseInt(Lines[5]);
-                logo.setImageResource(value);
-                title.setText(Lines[0]);
-                desc.setText(Lines[1]);
-                reservation.setText(Lines[2] + ", " + Lines[3] +
-                        " for " + Lines[4] + " Persons");
-
-                Toast.makeText(this, "Please wait the reservation confirm from the administrator", Toast.LENGTH_LONG).show();
-                fin.close();
-            }
-            catch (Exception ex)
+            while((strLine = br.readLine()) != null)
             {
-                ex.printStackTrace();
-                setContentView(R.layout.activity_my_reservations);
+                Lines[i] = strLine;
+                i++;
             }
 
+            int value = Integer.parseInt(Lines[5]);
+            logo.setImageResource(value);
+            title.setText(Lines[0]);
+            desc.setText(Lines[1]);
+            reservation.setText(Lines[2] + ", " + Lines[3] +
+                    " for " + Lines[4] + " Persons");
+
+            Toast.makeText(this, "Please wait the reservation confirm from the administrator", Toast.LENGTH_LONG).show();
+            fin.close();
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+            setContentView(R.layout.activity_my_reservations);
+        }
+
+        //BACK ARROW
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
     }
 
+    @Override   //BACK ARROW
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
 }
