@@ -264,14 +264,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
+                    android:drawableLeft="@drawable/fbicon"
                     android:onClick="goToFbPage"
                     android:text="click here to visit our page"
                     android:textColor="@android:color/holo_blue_dark"
                     android:textSize="20sp"
-                    android:drawableLeft="@drawable/facebook3"
-                    app:backgroundTint="#000000"
+                    android:backgroundTint="#000000"
                     app:iconGravity="textStart"
-                    app:iconSize="80dp"
                     app:iconTint="@null" />
 
 

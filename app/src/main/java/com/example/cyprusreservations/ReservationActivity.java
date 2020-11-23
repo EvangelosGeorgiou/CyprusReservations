@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -23,6 +24,8 @@ import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
+
 import com.example.cyprusreservations.ui.main.SectionsPagerAdapter;
 import org.w3c.dom.Text;
 import java.io.FileOutputStream;
@@ -52,12 +55,15 @@ public class ReservationActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
 
 
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Please fill all the fields and then press book now", Toast.LENGTH_LONG).show();
             }
         });
+
+
 
         Intent in = getIntent();
         storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
@@ -112,7 +118,19 @@ public class ReservationActivity extends AppCompatActivity {
         } catch (ParseException e) {
             Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
         }
+
+
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+
 
     public void seeEvents(View v){
         
@@ -366,7 +384,6 @@ public class ReservationActivity extends AppCompatActivity {
     public void bookNow(View v)
     {
 
-        Bundle info = new Bundle();
 
 
         Intent in = getIntent();
@@ -505,14 +522,7 @@ public class ReservationActivity extends AppCompatActivity {
         {
             selectedTime = "23:00";
         }
-/*
-        info.putInt("logo", logo);
-        info.putString("title",title);
-        info.putString("description", description);
-        info.putString("selectedTime", selectedTime);
-        info.putString("selectedDate",date);
-        info.putString("selectedGuests", selectedGuests);
-*/
+
         String title1 = title + "\n";
         String desc = description + "\n";
         String date1 = date + "\n";
@@ -520,31 +530,48 @@ public class ReservationActivity extends AppCompatActivity {
         String guests1 = selectedGuests + "\n";
         String logo1 = String.valueOf(logo);
 
-        try {
-            FileOutputStream fout = openFileOutput(file,0);
+        boolean b_guests = true, b_hour= true , b_date=true;
 
 
-            fout.write(title1.getBytes());
-            fout.write(desc.getBytes());
-            fout.write(date1.getBytes());
-            fout.write(time.getBytes());
-            fout.write(guests1.getBytes());
-            fout.write(logo1.getBytes());
-
-            fout.close();
-
+        if(selectedGuests.equals("")){
+            guests.setError("This field can't be empty");
+            b_guests = false;
         }
-        catch (Exception ex)
+        if(date.equals("Name"))
         {
-            ex.printStackTrace();
-            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please select your date for the reservation", Toast.LENGTH_SHORT).show();
+            b_date=false;
         }
 
-        Toast.makeText(getApplicationContext(), "Your reservation is pending. Please check the progress from MyReservations page!",Toast.LENGTH_LONG).show();
+        if (group.getCheckedRadioButtonId() == -1)
+        {
+            b_hour = false;
+            Toast.makeText(this, "Please check your time for the reservation", Toast.LENGTH_SHORT).show();
+        }
+
+        if (b_guests && b_hour && b_date) {
+            try {
+                FileOutputStream fout = openFileOutput(file, 0);
+
+
+                fout.write(title1.getBytes());
+                fout.write(desc.getBytes());
+                fout.write(date1.getBytes());
+                fout.write(time.getBytes());
+                fout.write(guests1.getBytes());
+                fout.write(logo1.getBytes());
+
+                fout.close();
+                Toast.makeText(getApplicationContext(), "Your reservation is pending. Please check the progress from MyReservations page!",Toast.LENGTH_LONG).show();
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+            }
 
         Intent in1 = new Intent(this, MainActivity.class);
-        //in1.putExtras(info);
         startActivity(in1);
+        }
     }
 
 

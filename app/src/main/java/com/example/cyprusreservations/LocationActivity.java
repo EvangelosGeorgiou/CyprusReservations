@@ -24,8 +24,6 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
     private GoogleMap mMap;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
