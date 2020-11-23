@@ -13,9 +13,11 @@ import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.StringBufferInputStream;
+import java.nio.channels.FileChannel;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,15 +35,12 @@ public class MyReservationsActivity extends AppCompatActivity {
         setContentView(R.layout.fragment_myreservations_info);
 
 
-        //Intent in = getIntent();
-        //Bundle info = in.getExtras();
-
         ImageView logo = findViewById(R.id.ivLogo);
         TextView title = findViewById(R.id.tvTitle);
         TextView desc = findViewById(R.id.tvDescription);
         TextView reservation = findViewById(R.id.tvMyReservations);
 
-        //if (info != null) {
+
 
 
 
@@ -76,16 +75,10 @@ public class MyReservationsActivity extends AppCompatActivity {
             catch (Exception ex)
             {
                 ex.printStackTrace();
-                Toast.makeText(getApplicationContext(), "something went wrong", Toast.LENGTH_SHORT).show();
+                setContentView(R.layout.activity_my_reservations);
             }
 
 
-
-        //} else
-          //  {
-                //setContentView(R.layout.activity_my_reservations);
-
-           // }
     }
 
 

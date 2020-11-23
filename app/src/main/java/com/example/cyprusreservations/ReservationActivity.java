@@ -540,7 +540,7 @@ public class ReservationActivity extends AppCompatActivity {
             Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
         }
 
-        Toast.makeText(getApplicationContext(), "Your reservation is pending. Please check the progress from the MyReservations page!",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Your reservation is pending. Please check the progress from MyReservations page!",Toast.LENGTH_LONG).show();
 
         Intent in1 = new Intent(this, MainActivity.class);
         //in1.putExtras(info);
