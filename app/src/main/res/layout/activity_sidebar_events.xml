@@ -6,7 +6,7 @@
     android:id="@+id/constrainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="#444444"
     tools:context=".EventActivity">
 
     <ScrollView
@@ -479,18 +479,21 @@
                 </TableRow>
 
                 <TableRow>
+
                     <TextView
                         android:id="@+id/d11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/t11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/e11"
                         android:layout_width="wrap_content"
@@ -501,18 +504,21 @@
                 </TableRow>
 
                 <TableRow>
+
                     <TextView
                         android:id="@+id/d12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/t12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/e12"
                         android:layout_width="wrap_content"
@@ -523,18 +529,21 @@
                 </TableRow>
 
                 <TableRow>
+
                     <TextView
                         android:id="@+id/d13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/t13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/e13"
                         android:layout_width="wrap_content"
@@ -545,18 +554,21 @@
                 </TableRow>
 
                 <TableRow>
+
                     <TextView
                         android:id="@+id/d14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/t14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/e14"
                         android:layout_width="wrap_content"
@@ -582,7 +594,9 @@
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TableRow>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -590,6 +604,7 @@
                         android:text="DATE"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -597,6 +612,7 @@
                         android:text="TIME"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -606,19 +622,23 @@
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
                 </TableRow>
+
                 <TableRow>
+
                     <TextView
                         android:id="@+id/d15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/t15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/e15"
                         android:layout_width="wrap_content"
@@ -627,19 +647,23 @@
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
+
                 <TableRow>
+
                     <TextView
                         android:id="@+id/d16"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/t16"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/e16"
                         android:layout_width="wrap_content"
@@ -648,19 +672,23 @@
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
+
                 <TableRow>
+
                     <TextView
                         android:id="@+id/d17"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/t17"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/e17"
                         android:layout_width="wrap_content"
@@ -669,19 +697,23 @@
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
+
                 <TableRow>
+
                     <TextView
                         android:id="@+id/d18"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/t18"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/e18"
                         android:layout_width="wrap_content"
@@ -716,6 +748,7 @@
                         android:text="DATE"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -723,6 +756,7 @@
                         android:text="TIME"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -732,19 +766,23 @@
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
                 </TableRow>
+
                 <TableRow>
+
                     <TextView
                         android:id="@+id/d19"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/t19"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/e19"
                         android:layout_width="wrap_content"
@@ -753,19 +791,23 @@
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
+
                 <TableRow>
+
                     <TextView
                         android:id="@+id/d20"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/t20"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/e20"
                         android:layout_width="wrap_content"
@@ -774,19 +816,23 @@
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
+
                 <TableRow>
+
                     <TextView
                         android:id="@+id/d21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/t21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/e21"
                         android:layout_width="wrap_content"
@@ -795,19 +841,23 @@
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
+
                 <TableRow>
+
                     <TextView
                         android:id="@+id/d22"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/t22"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/e22"
                         android:layout_width="wrap_content"
@@ -816,19 +866,23 @@
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
+
                 <TableRow>
+
                     <TextView
                         android:id="@+id/d23"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/t23"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
+
                     <TextView
                         android:id="@+id/e23"
                         android:layout_width="wrap_content"
