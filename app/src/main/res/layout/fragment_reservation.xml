@@ -42,8 +42,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginTop="5dp"
-                android:weekNumberColor="#FFFFFF"
-                android:weekSeparatorLineColor="#FFFFFF" />
+                android:theme="@style/CalenderViewCustom"
+                android:dateTextAppearance="@style/CalenderViewDateCustomText"
+                android:weekDayTextAppearance="@style/CalenderViewWeekCustomText" />
 
             <TextView
                 android:id="@+id/textView4"
