@@ -90,8 +90,6 @@ public class PlaceholderFragment extends Fragment {
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
         {
             root = inflater.inflate(R.layout.fragment_tab_activity_events, container, false);
-
-
         }
         return root;
     }
