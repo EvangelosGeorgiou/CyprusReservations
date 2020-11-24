@@ -7,17 +7,18 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv1"
-        android:layout_width="match_parent"
-        android:layout_height="322dp"
+        android:layout_width="369dp"
+        android:layout_height="287dp"
         android:layout_margin="15dp"
         android:animateLayoutChanges="true"
         android:animationCache="false"
         android:clickable="false"
+        app:cardBackgroundColor="#444444"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="308dp"
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
@@ -58,7 +59,7 @@
 
             <LinearLayout
                 android:id="@+id/LinearLayout"
-                android:layout_width="wrap_content"
+                android:layout_width="171dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="5dp"
                 android:layout_marginLeft="5dp"
@@ -74,6 +75,7 @@
                     android:layout_marginTop="40dp"
                     android:gravity="center"
                     android:text="nbkb"
+                    android:textColor="#FFFFFF"
                     android:textSize="17sp" />
 
                 <TextView
@@ -83,6 +85,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:text="bkn"
+                    android:textColor="#FFFFFF"
                     android:textSize="14sp" />
 
                 <RatingBar
