@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,9 +27,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
@@ -41,6 +45,7 @@ import androidx.appcompat.widget.Toolbar;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.util.Calendar;
 
@@ -52,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
     private View headerView;
     private String file = "CustomerRegistration.txt";
-    private int counter=0;
+    private String notificationFile = "NotificationFile.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,7 +130,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        Menu menu = navigationView.getMenu();
+        MenuItem notifications = menu.findItem(R.id.nav_notification);
+        Switch notSwitch = MenuItemCompat.getActionView(menu.findItem(R.id.nav_notification)).findViewById(R.id.notificationSwitch);
+        notSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(notSwitch.isChecked()){
+                    boolean notification = true;
+                    createNotificationFile(notification);
+                }else{
+                    boolean notification = false;
+                    createNotificationFile(notification);
+
+                }
+            }
+        });
+
+        if(booleanNotification()){
+            notSwitch.setChecked(true);
+        }else{
+            notSwitch.setChecked(false);
+        }
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && booleanNotification()) {
             notification();
         }
     }
@@ -215,5 +243,51 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         intent.setAction("android.intent.action.DISPLAY_NOTIFICATION");
         PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, intent, PendingIntent.FLAG_ONE_SHOT);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), broadcast);
+    }
+
+    public void createNotificationFile(boolean notification){
+        try {
+            FileOutputStream fout = openFileOutput(notificationFile, 0);
+            if(notification){
+                fout.write("true".getBytes());
+                fout.close();
+            }else{
+                fout.write("false".getBytes());
+                fout.close();
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+            System.out.println("createNotification file error -->  ");
+        }
+    }
+
+    public boolean booleanNotification(){
+        try {
+            FileInputStream fin = openFileInput(notificationFile);
+            DataInputStream din = new DataInputStream(fin);
+            InputStreamReader isr = new InputStreamReader(din);
+            BufferedReader br  = new BufferedReader(isr);
+
+            int i = 0;
+            String lines[] = new String[1];
+            String strLine;
+            while((strLine = br.readLine()) != null){
+                lines[i] = strLine;
+                i++;
+            }
+            fin.close();
+
+            if(lines[0].equals("true")){
+                return true;
+            }else{
+                return false;
+            }
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            //Toast.makeText(getApplicationContext(), "something went wrong", Toast.LENGTH_SHORT).show();
+            System.out.println("Error ---> "+ex);
+        }
+        return true;
     }
 }
