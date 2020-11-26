@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cyprusreservations.ui.main.SectionsPagerAdapter;
 
@@ -18,6 +19,10 @@ public class EventActivity extends AppCompatActivity {
         //BACK ARROW
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        //START SERVICE
+        Intent in = new Intent(this,MyService.class);
+        startService(in);
 
         //VIEW TABLE PIER ONE
         //VIEW DATE
@@ -138,8 +143,8 @@ public class EventActivity extends AppCompatActivity {
         //CREATING TABLE FOR DATE
         String[] date =new String[5];
 
-        date[0] = "5/12/20";
-        date[1] = "7/12/20";
+        date[0] = "05/12/20";
+        date[1] = "07/12/20";
         date[2] = "15/12/20";
         date[3] = "20/12/20";
         date[4] = "27/12/20";
@@ -276,6 +281,11 @@ public class EventActivity extends AppCompatActivity {
 
     @Override   //BACK ARROW
     public boolean onSupportNavigateUp() {
+        Intent in2 = new Intent(this,MyService.class);
+        stopService(in2);
+
+        MyService s = new MyService();
+        Toast.makeText(getApplicationContext(),"You have spent "+s.getCounter()+ " seconds in the second activity",Toast.LENGTH_LONG).show();
         onBackPressed();
         return true;
     }

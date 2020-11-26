@@ -39,7 +39,6 @@
                 android:id="@+id/idPierOne"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:gravity="center"
                 android:text="PIER ONE"
                 android:textColor="@android:color/holo_blue_dark"
@@ -48,7 +47,8 @@
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
+
 
                 <TableRow>
 
@@ -56,6 +56,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="DATE"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
@@ -64,6 +65,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="TIME"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
@@ -71,7 +73,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:text="EVENT"
                         android:textColor="@android:color/holo_blue_dark"
@@ -85,6 +87,7 @@
                         android:id="@+id/d1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
 
@@ -92,6 +95,7 @@
                         android:id="@+id/t1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
 
@@ -99,7 +103,7 @@
                         android:id="@+id/e1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
@@ -111,6 +115,7 @@
                         android:id="@+id/d2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
 
@@ -118,6 +123,7 @@
                         android:id="@+id/t2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
 
@@ -125,7 +131,7 @@
                         android:id="@+id/e2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
@@ -137,6 +143,7 @@
                         android:id="@+id/d3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
 
@@ -144,6 +151,7 @@
                         android:id="@+id/t3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
 
@@ -151,7 +159,7 @@
                         android:id="@+id/e3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
@@ -164,12 +172,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/t4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
 
@@ -177,7 +187,7 @@
                         android:id="@+id/e4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
@@ -190,6 +200,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -197,13 +208,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
@@ -215,7 +227,6 @@
                 android:id="@+id/idAgrampeli"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="ΑΓΡΑΜΠΕΛΗ"
@@ -225,7 +236,7 @@
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <TableRow>
 
@@ -233,6 +244,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="DATE"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
@@ -241,6 +253,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="TIME"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
@@ -248,7 +261,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:text="EVENT"
                         android:textColor="@android:color/holo_blue_dark"
@@ -263,6 +276,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -270,13 +284,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
@@ -289,6 +304,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -296,13 +312,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
@@ -315,6 +332,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -322,13 +340,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
@@ -339,7 +358,6 @@
                 android:id="@+id/idGonia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="ΓΩΝΙΑ"
@@ -349,7 +367,7 @@
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <TableRow>
 
@@ -358,6 +376,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="DATE"
+                        android:gravity="center"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
 
@@ -365,6 +384,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="TIME"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
@@ -372,7 +392,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:text="EVENT"
                         android:textColor="@android:color/holo_blue_dark"
@@ -387,6 +407,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -394,13 +415,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
@@ -412,6 +434,7 @@
                         android:id="@+id/d10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
 
@@ -419,6 +442,7 @@
                         android:id="@+id/t10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
 
@@ -426,7 +450,7 @@
                         android:id="@+id/e10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
@@ -437,7 +461,6 @@
                 android:id="@+id/idFinders"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="FINDERS"
@@ -447,7 +470,7 @@
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <TableRow>
 
@@ -455,6 +478,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="DATE"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
@@ -463,6 +487,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="TIME"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
@@ -470,7 +495,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:text="EVENT"
                         android:textColor="@android:color/holo_blue_dark"
@@ -485,6 +510,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -492,13 +518,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
@@ -510,6 +537,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -517,13 +545,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
@@ -534,6 +563,7 @@
                         android:id="@+id/d13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
 
@@ -541,6 +571,7 @@
                         android:id="@+id/t13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
 
@@ -548,7 +579,7 @@
                         android:id="@+id/e13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
@@ -560,12 +591,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/t14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:textColor="@android:color/background_light" />
 
@@ -573,7 +606,7 @@
                         android:id="@+id/e14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
@@ -583,7 +616,6 @@
                 android:id="@+id/idBaraki"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="BARAKI LIVE"
@@ -593,7 +625,7 @@
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <TableRow>
 
@@ -601,6 +633,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="DATE"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
@@ -609,6 +642,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="TIME"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
@@ -616,7 +650,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:text="EVENT"
                         android:textColor="@android:color/holo_blue_dark"
@@ -630,6 +664,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -637,13 +672,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
@@ -655,6 +691,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -662,13 +699,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e16"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
@@ -680,6 +718,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -687,13 +726,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e17"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
@@ -705,6 +745,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -712,13 +753,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e18"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
             </TableLayout>
@@ -727,7 +770,6 @@
                 android:id="@+id/idConfuzio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="COFNUZIO"
@@ -737,7 +779,7 @@
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <TableRow>
 
@@ -746,6 +788,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="DATE"
+                        android:gravity="center"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
 
@@ -754,13 +797,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="TIME"
+                        android:gravity="center"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:text="EVENT"
                         android:textColor="@android:color/holo_blue_dark"
@@ -774,6 +818,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -781,13 +826,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e19"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
@@ -799,6 +845,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -806,13 +853,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e20"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
@@ -824,6 +872,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -831,13 +880,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
@@ -849,6 +899,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -856,13 +907,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e22"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
@@ -874,6 +926,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
@@ -881,13 +934,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textColor="@android:color/background_light" />
 
                     <TextView
                         android:id="@+id/e23"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:textColor="@android:color/background_light" />
                 </TableRow>
