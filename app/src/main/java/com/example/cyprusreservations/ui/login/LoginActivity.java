@@ -152,7 +152,6 @@ public class LoginActivity extends AppCompatActivity {
             String strLine;
             while((strLine = br.readLine()) != null){
                 lines[i] = strLine;
-                System.out.println("data = "+lines[i]);
                 i++;
             }
 
