@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cyprusreservations.ui.main.SectionsPagerAdapter;
+import com.google.android.gms.common.internal.Objects;
 
 public class EventActivity extends AppCompatActivity {
     StoreInfo storeInfo;
@@ -285,7 +286,16 @@ public class EventActivity extends AppCompatActivity {
         stopService(in2);
 
         MyService s = new MyService();
-        Toast.makeText(getApplicationContext(),"Dont forget to make your reservation",Toast.LENGTH_LONG).show();
+        int count = s.getCounter();
+        if (count >= 10){
+            Toast.makeText(getApplicationContext(),"Dont forget to make your reservation",Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(), "I see you are not interested in these events.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "They provide the best service",Toast.LENGTH_SHORT).show();
+        }
+
         onBackPressed();
         return true;
     }
