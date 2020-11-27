@@ -28,7 +28,6 @@ public class NotificationReceiver extends BroadcastReceiver {
 
         PendingIntent pendingIntent = stackBuilder.getPendingIntent(100,PendingIntent.FLAG_UPDATE_CURRENT);
 
-//        NotificationCompat.Builder builder = new NotificationCompat.Builder(context,"1");
         NotificationChannel channel = null;
         channel = new NotificationChannel(
                 "1",

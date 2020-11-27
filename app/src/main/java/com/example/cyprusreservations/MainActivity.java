@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), broadcast);
     }
 
-    public void createNotificationFile(boolean notification){
+    public void createNotificationFile(boolean notification){       //creating file to save switch value
         try {
             FileOutputStream fout = openFileOutput(notificationFile, 0);
             if(notification){
@@ -278,7 +278,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }catch (Exception ex){
             ex.printStackTrace();
-            //Toast.makeText(getApplicationContext(), "something went wrong", Toast.LENGTH_SHORT).show();
             System.out.println("Error ---> "+ex);
         }
         return true;

@@ -100,7 +100,6 @@ public class RegisterActivity extends AppCompatActivity {
             b_pass = false;
         }
 
-        //using the functions from LoginViewModel.java to check the password
         if (!isPasswordValid(password)) {
             etpassword.setError("Password type is incorrect. Please check the FAB button for more!");
             b_pass2 = false;
