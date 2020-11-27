@@ -95,6 +95,8 @@
                         android:id="@+id/rbGroup"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
                         android:orientation="horizontal">
 
                         <RadioButton
@@ -411,7 +413,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Name"
-                android:textColor="#FFFFFF" />
+                android:textColor="#444444" />
 
         </LinearLayout>
     </ScrollView>
