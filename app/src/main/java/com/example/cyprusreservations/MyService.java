@@ -24,7 +24,6 @@ public class MyService extends Service {
     public int onStartCommand(Intent in,int flag,int startId)
     {
         count = 0;
-        Toast.makeText(getApplicationContext(),"Service has started",Toast.LENGTH_LONG).show();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -55,7 +54,6 @@ public class MyService extends Service {
         if(timer != null)
         {
             timer.cancel();
-            Toast.makeText(getApplicationContext(),"Service has stopped",Toast.LENGTH_LONG).show();
         }
         super.onDestroy();
     }

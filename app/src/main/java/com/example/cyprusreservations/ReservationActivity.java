@@ -127,7 +127,9 @@ public class ReservationActivity extends AppCompatActivity {
         Intent in = getIntent();
         storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
         String title = storeInfo.getTitle();
-
+        //TO HIDE THE BUTTON
+        Button view = findViewById(R.id.submit);
+        view.setVisibility(View.GONE);
         // CREATING TABLE FOR FOOTBALL EVENTS
         String[] eventsFootball = new String[5];
 
@@ -147,8 +149,8 @@ public class ReservationActivity extends AppCompatActivity {
         //CREATING TABLE FOR DATE
         String[] date =new String[5];
 
-        date[0] = "5/12/20";
-        date[1] = "7/12/20";
+        date[0] = "05/12/20";
+        date[1] = "07/12/20";
         date[2] = "15/12/20";
         date[3] = "20/12/20";
         date[4] = "27/12/20";

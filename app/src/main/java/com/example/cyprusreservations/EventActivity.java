@@ -285,7 +285,7 @@ public class EventActivity extends AppCompatActivity {
         stopService(in2);
 
         MyService s = new MyService();
-        Toast.makeText(getApplicationContext(),"You have spent "+s.getCounter()+ " seconds in the second activity",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Dont forget to make your reservation",Toast.LENGTH_LONG).show();
         onBackPressed();
         return true;
     }
