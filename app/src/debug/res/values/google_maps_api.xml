@@ -20,7 +20,8 @@
     Once you have your key (it starts with "AIza"), replace the "google_maps_key"
     string in this file.
     -->
+<!--    Kyriakos key =         AIzaSyDgr3YPnLkQFRQPjBbFPrY6dMAdST71zeM   -->
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
-        AIzaSyDgr3YPnLkQFRQPjBbFPrY6dMAdST71zeM
+        AIzaSyA5x-bBNOMDMaue_JYJbJGzMFxeQ_6SJak
     </string>
 </resources>

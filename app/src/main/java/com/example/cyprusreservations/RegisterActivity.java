@@ -108,7 +108,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (b_email && b_name && b_pass && b_pass2) {
             try {
-                //deleteFile(file);
                 FileOutputStream fout = openFileOutput(file, 0);
                 fout.write(name.getBytes());
                 fout.write(surname.getBytes());

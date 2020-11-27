@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private View headerView;
     private String file = "CustomerRegistration.txt";
     private String notificationFile = "NotificationFile.txt";
+    private String customer_session = "CustomerSession.txt";
+    private boolean session = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,13 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.commit();
         }
 
-        Intent in = getIntent();
-        String LOGIN_STATUS = in.getStringExtra(LoginActivity.LOGIN_STATUS);
-
-
-        if(LOGIN_STATUS ==null){
-            LOGIN_STATUS = "";
-        } if (LOGIN_STATUS.equals("true")){
+        if (customerSession()){
             Menu nav_menu = navigationView.getMenu();
             nav_menu.findItem(R.id.nav_signin).setVisible(false);
             nav_menu.findItem(R.id.nav_signout).setVisible(true);
@@ -120,7 +116,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 headerView = navigationView.getHeaderView(0);
                 TextView tv = headerView.findViewById(R.id.tvCustomerName);
                 tv.setText("Hello "+lines[0]+" !");
-                Toast.makeText(getApplicationContext(), "Welcome "+lines[0] , Toast.LENGTH_SHORT).show();
                 fin.close();
 
             }catch (Exception ex){
@@ -266,6 +261,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             String strLine;
             while((strLine = br.readLine()) != null){
                 lines[i] = strLine;
+                System.out.println("session = "+lines[i]);
                 i++;
             }
             fin.close();
@@ -281,5 +277,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             System.out.println("Error ---> "+ex);
         }
         return true;
+    }
+
+    public boolean customerSession(){
+        try {
+            FileInputStream fin = openFileInput(customer_session);
+            DataInputStream din = new DataInputStream(fin);
+            InputStreamReader isr = new InputStreamReader(din);
+            BufferedReader br  = new BufferedReader(isr);
+
+            int i = 0;
+            String lines[] = new String[1];
+            String strLine;
+            while((strLine = br.readLine()) != null){
+                lines[i] = strLine;
+                i++;
+            }
+
+            if(lines[0].equals("true")){
+                fin.close();
+                return session = true;
+            }
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            System.out.println("Error ---> "+ex);
+        }
+        return false;
     }
 }

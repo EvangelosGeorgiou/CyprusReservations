@@ -67,7 +67,7 @@
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please tell us why u didnt like the app?"
+        android:text="Please tell us why you didn't like the app?"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="16sp"

@@ -34,11 +34,13 @@ import com.example.cyprusreservations.RegisterActivity;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 
 public class LoginActivity extends AppCompatActivity {
 
     private String file = "CustomerRegistration.txt";
+    private String customer_session = "CustomerSession.txt";
     private LoginViewModel loginViewModel;
     public static final String LOGIN_STATUS = "";
 
@@ -161,7 +163,8 @@ public class LoginActivity extends AppCompatActivity {
             String password = passwordEditText.getText().toString();
             if(email.equals(lines[2]) && password.equals(lines[3])){
                 Intent in = new Intent(this, MainActivity.class);
-                in.putExtra(LOGIN_STATUS,"true");
+                Toast.makeText(getApplicationContext(), "Welcome "+lines[0] , Toast.LENGTH_SHORT).show();
+                customer_session();
                 startActivity(in);
             }else{
                 Toast.makeText(getApplicationContext(), "Email or Password is incorrect! Please try again", Toast.LENGTH_LONG).show();
@@ -193,7 +196,6 @@ public class LoginActivity extends AppCompatActivity {
                 String strLine;
                 while((strLine = br.readLine()) != null){
                     lines[i] = strLine;
-                    System.out.println("data = "+lines[i]);
                     i++;
                 }
 
@@ -225,5 +227,18 @@ public class LoginActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    public void customer_session(){
+        try {
+            FileOutputStream fout = openFileOutput(customer_session, 0);
+            fout.write("true".getBytes());
+            fout.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Toast.makeText(getApplicationContext(), "something went wrong", Toast.LENGTH_SHORT).show();
+            System.out.println("Error code:--> " + ex);
+        }
     }
 }
