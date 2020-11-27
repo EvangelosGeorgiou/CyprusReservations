@@ -1,19 +1,12 @@
 package com.example.cyprusreservations;
 
-import android.app.ActionBar;
-import android.app.usage.UsageEvents;
+
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-
-
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
-
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,10 +18,7 @@ import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
-
 import com.example.cyprusreservations.ui.main.SectionsPagerAdapter;
-import org.w3c.dom.Text;
 import java.io.FileOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -121,8 +111,7 @@ public class ReservationActivity extends AppCompatActivity {
         }
 
 
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-       // getSupportActionBar().setDisplayShowHomeEnabled(true);
+
     }
 
     @Override
@@ -336,6 +325,7 @@ public class ReservationActivity extends AppCompatActivity {
         info.putString("address" , address);
         info.putString("title",title);
 
+        //Go to selected location according to coordinates
         if (title.equals("Pier One"))
         {
             coords = new LatLng(34.670962,33.043532);
@@ -385,8 +375,6 @@ public class ReservationActivity extends AppCompatActivity {
     public void bookNow(View v)
     {
 
-
-
         Intent in = getIntent();
         storeInfo = (StoreInfo) in.getSerializableExtra("storeInfo");
         int logo = storeInfo.getLogo();
@@ -394,19 +382,16 @@ public class ReservationActivity extends AppCompatActivity {
         String description = storeInfo.getDescription();
 
 
-
         EditText etDate = findViewById(R.id.etDate);
         EditText guests = findViewById(R.id.etGuests);
         RadioGroup group = findViewById(R.id.rbGroup);
         String date = etDate.getText().toString();
 
-
         int selection = group.getCheckedRadioButtonId();
-
-
         String selectedGuests = guests.getText().toString();
         String selectedTime = "";
 
+        //selected time from the user
         if(selection == R.id.radioButton13)
         {
             selectedTime = "09:00";
@@ -533,7 +518,7 @@ public class ReservationActivity extends AppCompatActivity {
 
         boolean b_guests = true, b_hour= true , b_date=true;
 
-
+        //Check for empty fields
         if(selectedGuests.equals("")){
             guests.setError("This field can't be empty");
             b_guests = false;

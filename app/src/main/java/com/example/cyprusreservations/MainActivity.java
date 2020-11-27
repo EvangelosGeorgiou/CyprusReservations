@@ -177,14 +177,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent in = new Intent(this, EventActivity.class);
             startActivity(in);
         }else if(id == R.id.nav_myreservations){
-
-            //Intent in1  = getIntent();
-            //Bundle info = in1.getExtras();
-
             Intent in = new Intent(MainActivity.this,MyReservationsActivity.class);
-            //if (info!= null) {
-           //     in.putExtras(info);
-           // }
             startActivity(in);
         }else if(id == R.id.nav_signin){
             Intent in = new Intent(this,LoginActivity.class);
