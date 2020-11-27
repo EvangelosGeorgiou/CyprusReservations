@@ -44,8 +44,19 @@ public class MyService extends Service {
 
         return super.onStartCommand(in, flag, startId);
     }
+
     public int getCounter()
+
     {
         return count;
+    }
+
+    public void onDestroy(){
+        if(timer != null)
+        {
+            timer.cancel();
+            Toast.makeText(getApplicationContext(),"Service has stopped",Toast.LENGTH_LONG).show();
+        }
+        super.onDestroy();
     }
 }
