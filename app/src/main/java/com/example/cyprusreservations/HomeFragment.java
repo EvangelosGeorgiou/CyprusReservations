@@ -13,29 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.cyprusreservations.CustomAdaptor;
-import com.example.cyprusreservations.MainActivity;
-import com.example.cyprusreservations.R;
-import com.example.cyprusreservations.StoreInfo;
-import com.example.cyprusreservations.ui.login.LoginActivity;
-import com.google.android.gms.maps.model.LatLng;
-
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
 
 public class    HomeFragment extends Fragment {
