@@ -9,34 +9,20 @@ public class StoreInfo implements Serializable {
     private int logo;
     private int phone;
     private String address;
-    private String music;
-    private String football;
     private String openHour;
     private String closeHour;
 
 
-    public StoreInfo(String title, String description, int logo, float rating, int phone, String address,
-                     String music, String football, String openHour, String closeHour) {
+    public StoreInfo(String title, String description, int logo, float rating, int phone, String address, String openHour, String closeHour) {
         this.title = title;
         this.description = description;
         this.rating = rating;
         this.logo = logo;
         this.phone = phone;
         this.address = address;
-        this.music = music;
-        this.football = football;
         this.openHour = openHour;
         this.closeHour = closeHour;
 
-    }
-    public String getMusic() { return music;}
-    public void setMusic(String music) {
-        this.music= music;
-    }
-
-    public String getFootball() { return football;}
-    public void setFootball(String football) {
-        this.football= football;
     }
 
     public String getTitle() {

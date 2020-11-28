@@ -52,8 +52,7 @@ public class    HomeFragment extends Fragment {
     int[] phone = {25022375,25344314, 25115315,22750700, 96072277,25738883};
     String[] address = {"Old Port Λεμεσός, 3042","Hatziloizi Mihailidi 12, Λεμεσός 3041", "Hatziloizi Mihailidi , Λεμεσός 3041",
                         "28ης Οκτωβρίου 13, Έγκωμη 2414","Γεώργιου Γρίβα Διγενή, Λευκωσία","Λεωφ. Αρχ. Μακαρίου Γ', Λεμεσός 3021"};
-    String[] music = {"Dj","Live","Karaoke","","Live",""};
-    String[] football = {"","ΑΕΛ vs ΑΠΟΕΛ","","CHELSE vs LIVERPOOL","","","ΟΜΟΝΟΙΑ vs ΑΠΟΛΛΩΝΑ"};
+
     String[] openHour = {"09:00","16:00","17:00","16:00","22:00","08:00"};
     String[] closeHour = {"22:30","26:00","26:00","26:00","26:30","23:30"};
 
@@ -70,8 +69,7 @@ public class    HomeFragment extends Fragment {
         setHasOptionsMenu(true);
         //stores all the information for shops in a list
         for(int i=0; i<titles.length; i++){
-            StoreInfo storeInfo = new StoreInfo(titles[i],description[i],logo[i],rating[i],phone[i],address[i],
-                    music[i],football[i],openHour[i],closeHour[i]);
+            StoreInfo storeInfo = new StoreInfo(titles[i],description[i],logo[i],rating[i],phone[i],address[i],openHour[i],closeHour[i]);
             listStoreInfo.add(storeInfo);
         }
 
